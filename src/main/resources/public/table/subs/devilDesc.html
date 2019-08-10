@@ -1,0 +1,44 @@
+	<meta charset="UTF-8" />
+	
+	<form class="form-horizontal" role="form">
+		<div class="input-group">
+		  <span class="input-group-addon ">恶魔序号</span>
+			  <input name="devilId" id="devilId" class="form-control"  type="text" readonly="true" placeholder="恶魔ID" v-model="fixedVal" />
+		</div>
+		<div class="input-group">
+		  <span class="input-group-addon ">对战英雄</span>
+			  <input name="ref2hero" id="ref2hero" class="form-control"  type="text" readonly="true" placeholder="对战英雄"/>
+		</div>
+		<div class="input-group">
+		  <span class="input-group-addon">模糊匹配</span>
+		  <input name="devilDesc" id="devilDesc"  type="text" class="form-control" placeholder="恶魔描述">
+		</div>
+		<div class="input-group">
+		 <span class="input-group-addon ">恶魔名称</span>
+			  <input name="devilName" id="devilName" class="form-control"  type="text"  placeholder="恶魔名称">
+		</div>
+	   <div class="input-group">
+		  <span class="input-group-addon">武器级别</span>
+			  <input name="devilEquipLevel" id="devilEquipLevel" class="form-control"  type="text"  placeholder="装备型号" />
+		</div>
+		<div class="input-group">
+		  <span class="input-group-addon ">出生地区</span>
+			<select name="devilNation" id="devilNation" class="form-control" v-on:change="groupAsdata">
+				<option v-for="k,v in nations">{{v}}</option>
+			</select>
+		</div>
+	   <div class="input-group">
+		  <span class="input-group-addon">恶魔种族</span>
+			<select name="devilCate" id="devilCate" class="form-control" v-on:change="groupAsdata">
+				<option v-for="k,v in cates">{{v}}</option>
+			</select>
+		</div>
+	   <div id="devilKind" class="input-group">
+		  <span class="input-group-addon">恶魔职业</span>
+			  <label class="radio radio-inline"  v-for="k,v in kinds">
+				  <input type="radio" name="devilKind" class="devilKind_t" v-bind:value="v" v-on:change="groupAsdata">{{v}}
+			  </label>
+		</div>
+	</form>
+	<input id="new_devil_data" type="hidden" value="default"/>
+	<script src="../../js/table/devilDesc.js"></script>

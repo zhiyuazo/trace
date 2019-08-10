@@ -1,0 +1,84 @@
+.table-hover>tbody>tr:hover>td, .table-hover>tbody>tr:hover>th{
+	background-color:#f78a09
+}
+
+
+.table-striped>tbody>tr select:nth-of-type(odd){
+	background-color:#333333
+}
+
+.table-striped>tbody>tr select:nth-of-type(even){
+	background-color:#354046
+}
+.table-striped>tbody>tr:nth-of-type(odd){
+	background-color:#333333;
+	border:1px solid green
+}
+.table-striped>tbody>tr:nth-of-type(even){
+	background-color:#354046;
+	border:1px solid red
+}
+
+#all_devil>thead{
+	background-color:#FFFF80;
+	background-color:#61bbe8;
+}
+#all_devil>tbody{
+	/*background-color:#736117*/
+	background-color:#c9b5d4
+}
+a i{
+	color: #B03060;
+	text-decoration: none;
+}
+a {
+	color: #ffffff;
+	text-decoration: none;
+}
+select > option {
+	color: #000000;
+	text-decoration: none;
+}
+.editable-click, a.editable-click, a.editable-click:hover {
+	/*text-decoration: none; */
+	/* border-bottom: solid 1px #00EE00; */
+}
+a.EHmark {
+	border:2px solid red;
+}
+a.EDmark {
+	border:2px solid red;
+}
+
+.popover-title {
+	padding: 8px 14px;
+	margin: 0;
+	font-size: 14px;
+	background-color: #8F8F8F;
+	border-bottom: 1px solid #ebebeb;
+	border-radius: 5px 5px 0 0;
+}
+.table-striped > tbody > tr select:nth-of-type(2n+1) {
+	background-color: #c0c0c0;
+}
+.input-group-addon {
+	padding: 6px 12px;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1;
+	color: #f9f400;
+	text-align: center;
+	background-color: #a2007c;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+#all_hero.table-striped > tbody > tr.selected{
+	background-color:#67bf7f
+}
+/*
+td>a.editable-click, td>a.editable-click, td>a.editable-click:hover {
+	border:2px solid red;
+}
+*/
+
+

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta charset="UTF-8" />
+<title>魔兽世界</title>
+<script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<link href="https://cdn.bootcss.com/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.bootcss.com/bootstrap-table/1.15.3/bootstrap-table.min.css" rel="stylesheet">
+<link href="https://cdn.bootcss.com/x-editable/1.5.1/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet">
+<link href="https://cdn.bootcss.com/bootstrap-table/1.15.3/extensions/filter-control/bootstrap-table-filter-control.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/twitter-bootstrap/3.3.6/js/bootstrap.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap-table/1.15.3/bootstrap-table.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap-table/1.15.3/locale/bootstrap-table-zh-CN.min.js"></script>
+<script src="https://cdn.bootcss.com/x-editable/1.5.1/bootstrap3-editable/js/bootstrap-editable.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap-table/1.15.2/extensions/editable/bootstrap-table-editable.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap-table/1.15.3/extensions/filter-control/bootstrap-table-filter-control.js"></script>
+</head>
+<body style="padding:50px;background-color:black">
+	<div style="color:white">
+		<table id="all_hero" >
+		</table>
+	</div>
+	
+	<script>
+	$(function(){
+		initTable();
+	})
+	var nations = {"血色十字军":"血色十字军","影牙城堡":"影牙城堡","暴风要塞":"暴风要塞","灰谷":"灰谷","莫高雷":"莫高雷","奥特兰克山脉":"奥特兰克山脉","艾泽拉斯":"艾泽拉斯","费伍德森林":"费伍德森林","太阳之井":"太阳之井","诺森德":"诺森德","逆风小径":"逆风小径","艾尔文森林":"艾尔文森林","荆棘谷":"荆棘谷"};
+	//Init HeroTable
+	var initTable = function(){
+		var hero_data = [{"heroPos":"塞拉摩港口","heroNation":"暴风要塞","heroProp":"暴击","heroEquipLevel":"橙色传说","heroId":1,"heroKind":"人类","heroCategory":"法师","heroName":"克尔苏加德","heroDesc":"比较厉害"},{"heroPos":"暴风港口","heroNation":"诺森德","heroProp":"智力","heroEquipLevel":"橙色传说","heroId":2,"heroKind":"牛头人","heroCategory":"盗贼","heroName":"艾萨拉","heroDesc":"最近缺蓝.."}]		
+		$("#all_hero").bootstrapTable({
+				undefinedText:'-',
+				virtualScroll:false,
+				classes:'table table-bordered',
+				striped:false,
+				silent:true,
+				minimumCountColumns:1,
+				resizable:true,
+				clickToSelect:true,
+				uniqueId:'heroId',
+				cardView:false,
+				detailView:true,
+				multipleSelectRow:true,//ctrl + shift
+				maintainMetaData:true, //翻页后保持前面选择
+				//@BASIC More-----------------------
+				showHeader:true,
+				showFooter:true,
+				showButtonIcons:true,//refresh .etc function's icons 
+				showButtonText:true,//refresh .etc function's texts 
+//				@ICONS-----------------------
+				iconsPrefix:"glyphicon",
+				iconsSize:"sm",
+				icons:{
+					detailOpen:"glyphicon-hand-down",
+					detailClose: "glyphicon-hand-up"
+				},
+				
+//				@ToolBar-----------------------
+				toolbar:'#toolbar', //自定义toolbar
+				toolbarAlign:'left',
+//				@Sort-----------------------
+				sortable:true,
+				sortName:'id',
+				sortOrder:"asc",
+				sortStable:false,
+//				@Pagination...-----------------------
+				pagination:true,
+				onlyinfoPagination:true,
+				paginationLoop:false,//不让循环页面浏览...
+					sidePagination:'client',
+				paginationHAlign:'left',
+				paginationDetailHAlign:'right',
+				paginationVAlign:'both',
+				paginationPreText:'<<',
+				paginationNextText:'>>',
+				paginationSuccessivelySize:5, //页码条@总长度
+				paginationPagesBySide:2, //页马条@左右两边长度
+				paginationUseIntermediate:false,//页码条@中间展开控制
+				pageNumber: 1 , //默认显示第几页，但是会跳转回第一页
+				pageSize: "5" , //初始每页显示的记录数目 
+				pageList: [10,15,20,25,30,50,100] , 
+
+//				@Filter plguin...-----------------------
+				filterControl:true,
+				data: hero_data,
+				//url:url,
+				method:'get',
+				columns:[
+						{checkbox:true,width:1,widthUnit:"%"},
+						{field:"heroId",width:1,widthUnit:"%",title:"英雄排名",filterControl:"input",sortable:true,class:'uniqueHid'},
+						{field:"heroName",title:"英雄名称",filterControl:"input",sortable:true,class:'uniqueHname',editable:'HnameEdit'},
+						{field:"heroNation",title:"出生地",filterControl:"select",filterData:"var:nations",sortable:true,editable:'HnationEdit'}
+				],
+				onExpandRow: function(index,row,$subDetail){
+						//InitSubTable on another js file 
+						initSubTable(index,row,$subDetail) 
+				}
+		});
+		return initTable;
+	};
+
+	//Init Sub table
+	var initSubTable = function(index,row ,$subDetail){
+		var devil_data = [{"devilNation":"塞纳留斯","ref2hero":1,"devilEquipLevel":"橙色传说","devilName":"阿克蒙德","devilDesc":"","devilId":1,"devilKind":""},{"devilNation":"","ref2hero":1,"devilEquipLevel":"橙色传说","devilName":"地狱咆哮","devilDesc":"","devilId":2,"devilKind":""},{"devilNation":"","ref2hero":1,"devilEquipLevel":"","devilName":"克尔苏加德","devilDesc":"威胁值高...","devilId":3,"devilKind":""}]	;	
+		var search_key = row.heroId;
+		var child_content = $subDetail.html('<div style="color:black;aligh:right;"><table id="all_devil"></table></div>');
+		child_devil_table = child_content.find("#all_devil");
+		child_devil_table.bootstrapTable({
+				queryParams: {search_key : search_key},
+				ajaxOption :{},
+				//url : '../devil',
+				data:devil_data,
+				method:'get',
+				clickToselect:true,
+				detailView:false,
+				undefinedText:'-',
+				detailViewByClick:true,
+				classes:'table',
+				cache:false,
+				showFooter:true,
+				clickToSelect:true,
+				uniqueId:"devilId",
+				columns:[
+					{checkbox:true},
+					{field:"devilId",title:"恶魔ID"},
+					{field:"devilName ",title:"恶魔名称",editable:'DnameEdit'},
+					{field:"devilNation",title:"出生地区",editable:'DnationEdit'}
+				]
+			});
+	};
+	function HnameEdit(){
+		var e = { type:"text",
+				  title:"修改英雄名称",
+				  mode:"popup",
+				  placeholder:"请输入英雄名称",
+				  toggle:"click",
+				  showbuttons:"bottom",
+				  // highlight:"#FFFF80",
+				  validate:function(v){
+				 	 if(!v) return '不能为空';
+				  }
+				}
+		return e;
+	}
+	function HnationEdit(){
+		var e = { type:"select",
+				  title: '英雄出生地',
+				  mode:"popup",
+				  highlight: "0FFFF80",
+				  unsavedclass:"editable-unsaved",
+				  sourceCache: true,
+				  source: nations
+				}
+		return e;
+	}
+	function DnameEdit(){
+		var e = { type:"text",
+				  title:"修改恶魔名称",
+				  mode:"popup",
+				  placeholder:"请输入恶魔名称",
+				  toggle:"click",
+				  showbuttons:"bottom",
+				  validate:function(v){
+				 	 if(!v) return '不能为空';
+				  }
+				}
+		return e;
+	}
+
+	function DnationEdit(){
+		var e = { type:"select",
+				  title: '出生地区',
+				  mode:"popup",
+				  highlight: "0FFFF80",
+				  unsavedclass:"editable-unsaved",
+				  source: nations
+				}
+		return e;
+	}
+	</script>
+	
+</body>
+</html>

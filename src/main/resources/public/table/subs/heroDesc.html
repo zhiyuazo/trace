@@ -1,0 +1,52 @@
+	<meta charset="UTF-8" />
+	
+	<form class="form-horizontal" role="form">
+		<div class="input-group">
+		  <span class="input-group-addon ">英雄序号</span>
+			  <input name="heroId" id="heroId" class="form-control"  type="text" readonly="true" placeholder="英雄ID" v-model="fixedVal"/>
+		</div>
+		<div class="input-group">
+			 <span class="input-group-addon ">英雄名称</span>
+			 <input name="heroName" id="heroName" class="form-control"  type="text"  placeholder="英雄名称">
+		</div>
+		<div class="input-group">
+		  <span class="input-group-addon">英雄描述</span>
+		  <input name="heroDesc" id="heroDesc"  type="text" class="form-control" placeholder="英雄描述">
+		</div>
+	   <div class="input-group">
+		  <span class="input-group-addon">武器级别</span>
+			  <input name="heroEquipLevel" id="heroEquipLevel" class="form-control"  type="text"  placeholder="武器级别" />
+		</div>
+		<div class="input-group">
+		  <span class="input-group-addon ">出生地区</span>
+			<select name="heroNation" id="heroNation" class="form-control" v-on:change="groupAsdata">
+				<option v-for="k,v in nations">{{v}}</option>
+			</select>
+		</div>
+		<div class="input-group">
+		  <span class="input-group-addon">所在战场</span>
+			<select name="heroPos" id="heroPos"class="form-control" v-on:change="groupAsdata" >
+				<option v-for="k,v in poss">{{v}}</option>
+			</select>
+		</div>
+	   <div  class="input-group">
+		  <span class="input-group-addon">英雄种族</span>
+			<select name="heroCate" id="heroCate" class="form-control" v-on:change="groupAsdata" >
+				<option v-for="k,v in cates">{{v}}</option>
+			</select>
+		</div>
+	   <div id="heroKind" class="input-group">
+		  <span class="input-group-addon">英雄职业</span>
+			  <label class="radio radio-inline" v-for="k,v in kinds">
+				  <input type="radio" name="heroKind" class="heroKind_t"  v-bind:value="v" v-on:change="groupAsdata">{{v}}
+			  </label>
+		</div>
+	   <div id="heroProp" class="input-group">
+		  <span class="input-group-addon">英雄特长</span>
+			  <label class="radio radio-inline" v-for="k,v in props">
+				  <input  type="radio" name="heroProp" class="heroProp_t" v-bind:value="v" v-on:change="groupAsdata">{{v}}
+			  </label>
+		</div>
+	</form>
+	<input id="new_hero_data" type="hidden" value="default"/>
+	<script src="../../js/table/heroDesc.js"></script>

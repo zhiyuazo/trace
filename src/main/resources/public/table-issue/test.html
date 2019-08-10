@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta charset="UTF-8" />
+<title>魔兽世界</title>
+<script src="../js/jquery-1.11.3.min.js"></script>
+<link href="../css/bootstrap/bootstrap.min.css" rel="stylesheet">
+<link href="../css/bootstrap/bootstrap-table.min.css" rel="stylesheet">
+<link href="../css/bootstrap/bootstrap-editable.css" rel="stylesheet">
+<link href="../css/bootstrap/bootstrap-table-filter-control.min.css" rel="stylesheet">
+<script src="../js/bootstrap/bootstrap.min.js"></script>
+<script src="../js/bootstrap/bootstrap-table.min.js"></script>
+<script src="../js/bootstrap/bootstrap-table-zh-CN.min.js"></script>
+<script src="../js/bootstrap/bootstrap-editable.min.js"></script>
+<script src="../js/bootstrap/bootstrap-table-editable2.js"></script>
+<script src="../js/bootstrap/bootstrap-table-filter-control.js"></script>
+<link href="../css/my.css" rel="stylesheet">
+</head>
+<body style="padding:50px;background-color:white">
+	
+	<div id="t1">
+		<div id="t2">
+			<div id="t3">
+				<p id="t4">
+					click me 1
+				</p>			
+				<p id="t44">
+					<a href="#nowhere" >I am a web link</a>
+				</p>			
+			</div>		
+		</div>
+	</div>
+		
+	<script>
+		$("#t1").click(function(){
+			console.log("t1 @click")
+		})
+		$("#t2").click(function(){
+			console.log("t2 @click")
+		})
+		$("#t3").click(function(){
+			console.log("t3 @click")
+		})
+		$("#t4").click(function(e){
+			console.log("t4 @click")
+		})
+		$("#t4").click(function(e){
+			console.log("t4 @re click")
+			e.stopImmediatePropagation();
+		})
+		$("#t44").click(function(e){
+			console.log("t44 @ click")
+		})
+	</script>
+	
+</body>
+</html>

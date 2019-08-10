@@ -1,0 +1,12 @@
+【v6】 :  
+based on V5 version
+complete:
+	Connect to Real Data GeoVis....(Deving)
+Problems:
+	legacy ISSUES , 规则子表， 编辑操作的时候只能打开一个：
+	// two way to resolve this problem, 
+	  	  no.1. JS file with parameters
+		  no.2. Method improved  with JQUERY select Element.. 
+	
+	
+    
