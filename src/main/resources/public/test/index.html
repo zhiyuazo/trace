@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta charset="UTF-8" />
+<title>测试页面</title>
+<script src="../js/jquery-1.11.3.min.js"></script>
+<script src="../js/vue.min.js"></script>
+</head>
+<body style="padding:50px;background-color:white">
+	
+	<div id="test">
+		<input  v-model="s"  placeholder="write some thing here..." />
+		<div>{{s}}</div>
+	
+	</div>
+	<div id="d1">
+		<product name="a" sale="0"></product>
+	</div>
+	
+	<script>
+		Vue.component('product',{
+			props: ['name','sale'],
+			template: '<div class="pro" v-on:click="plus">{{name}} : {{sale}}</div>',
+			methods:{
+				plus:function(){
+					this.sale++	
+				}
+			}
+		})
+	
+		new Vue({
+			el:"#d1"
+		})
+		
+		new Vue({
+			el:"#test",
+			data:{
+				s:""
+			}
+		});
+	</script>
+	
+</body>
+</html>
