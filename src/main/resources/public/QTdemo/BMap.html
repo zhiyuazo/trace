@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>Web+JavaS</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <script type="text/javascript" src="qwebchannel.js"></script>
+        <script type="text/javascript">
+
+
+            window.onload = function () {
+                output("ready!");
+
+                new QWebChannel(qt.webChannelTransport, function (channel) {
+                    var interactobj = channel.objects.interactobj;
+                    document.getElementById("send").onclick = function () {
+                        interactobj.recieveJsMessage("html2Qt");
+                    };
+                });
+            }
+
+
+            function output(message) {
+                var output = document.getElementById("output");
+                output.innerHTML = output.innerHTML + message + "\n";
+            }
+
+            // 获取字符串文本
+            function getInfo() {
+                var textString = "HTML js函数的返回值";
+                return textString;
+            }
+
+        </script>
+        <style type="text/css">
+                html {
+                    height: 100%;
+                    width: 100%;
+                }
+
+                /*#input {
+                width: 650px;
+                margin: 0 10px 0 0;
+            }*/
+
+                #send {
+                    width: 90px;
+                    margin: 0;
+                }
+
+                #output {
+                width: 200px;
+                height: 200px;
+            }
+        </style>
+    </head>
+<body>
+    <textarea id="output" readonly="readonly"></textarea><br />
+    <input type="submit" id="send" value="Send" onclick="javascript:click();" />
+</body>
+</html>

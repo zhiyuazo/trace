@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<script src="../../js/jq/jquery-1.11.3.js"></script>
+	<link href="../../css/bootstrap/bootstrap.min.css" rel="stylesheet">
+	<script src="../../js/bootstrap/bootstrap.min.js"></script>
+	<meta charset="UTF-8" />
+	<title>元素种类</title>
+	<link href="../../css/iecas/bootstrap.iecas.css" rel="stylesheet"></link>
+	<style>
+		div.panel-heading{
+			background-color:black !important;
+		}
+		a:link{
+			color:white;
+		}
+		a:visited{
+			color:green;
+		}
+		a:hover{
+			color:red;
+		}
+		a:active{
+			color:green;
+		}
+		#syq-rh-rule{
+			position:relative;
+			top:-20px;
+		}
+	</style>
+<body>
+	<div class="alert alert-danger" role="alert" style="text-align:center;color:black;font-size:20px">元素种类</div>
+	
+	<div class="panel-group" id="syq-rh-rule" role="tablist" aria-multiselectable="true">
+	
+		  <div class="panel panel-default">
+			    <div class="panel-heading" role="tab" id="fengSourceHeading">
+				      <h4 class="panel-title">
+				        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#fengSource" aria-expanded="true" aria-controls="fengSource">风</a>
+				      </h4>
+			    </div>
+			    <div id="fengSource" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="fengSourceHeading">
+				      <div class="panel-body">
+						       《DotA》（Defense of the Ancients），可以译作守护古树、守护遗迹、远古遗迹守卫， 是由暴雪公司出品即时战略游戏《魔兽争霸3》的一款多人即时对战、自定义地图，可支持10个人同时连线游戏，是暴雪公司官方认可的魔兽争霸的RPG地图。
+				      </div>
+			    </div>
+		  </div>
+		  
+		  <div class="panel panel-default">
+			    <div class="panel-heading" role="tab" id="huoSourceHeading">
+				      <h4 class="panel-title">
+				        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#huoSource" href="#huoSource" aria-expanded="true" aria-controls="huoSource">火</a>
+				      </h4>
+			    </div>
+			    <div id="huoSource" class="panel-collapse collapse" role="tabpanel" aria-labelledby="huoSourceHeading">
+				      <div class="panel-body">
+							《英雄联盟》（简称lol）是由美国Riot Games开发，中国大陆地区由腾讯游戏运营的网络游戏。
+				      </div>
+			    </div>
+		  </div>
+		  
+		  <div class="panel panel-default">
+			    <div class="panel-heading" role="tab" id="leiSourceHeading">
+				      <h4 class="panel-title">
+				        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#leiSource" href="#leiSource" aria-expanded="false" aria-controls="leiSourceThree">雷</a>
+				      </h4>
+			    </div>
+			    <div id="leiSource" class="panel-collapse collapse" role="tabpanel" aria-labelledby="leiSourceHeading">
+				      <div class="panel-body">
+				      		《风暴英雄》 是由暴雪娱乐公司开发的一款运行在Windows和Mac OS上的在线多人竞技PC游戏。
+				      </div>
+			    </div>
+		  </div>
+		  
+		  <div class="panel panel-default">
+			    <div class="panel-heading" role="tab" id="dianSourceHeading">
+				      <h4 class="panel-title">
+				        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#dianSource" aria-expanded="false" aria-controls="dianSource">电</a>
+				      </h4>
+			    </div>
+			    <div id="dianSource" class="panel-collapse collapse" role="tabpanel" aria-labelledby="dianSourceHeading">
+				      <div class="panel-body">
+				      		《风暴英雄》 是由暴雪娱乐公司开发的一款运行在Windows和Mac OS上的在线多人竞技PC游戏。
+				      </div>
+			    </div>
+		  </div>
+	</div>
+	<script>
+	</script>
+</body>
+</html>

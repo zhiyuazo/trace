@@ -1,0 +1,34 @@
+【v6】 :  
+based on V5 version
+Skills: 
+	CSS , HTML ,JQuery, VUE
+complete:
+	【select2】：
+		<select>标签 不可在Jquey中设置的选项， 什么垃圾插件，搞的怀疑人生
+			|multiple
+			|tags
+			|data 
+			|minimumResultsForSearch
+			|ajax not worked
+		<input type="hidden" /> 换成此 解决大部分问题
+			above parameters are OK!
+	【bs-select】：
+		很完美，但是x-editable 不支持....且动态获取options待研究
+		-----
+	【dimSearch_bs_Xeditable】 : data 不需添加 "results" , url 需要return "results":[array..]
+		遗憾的是不支持bs-select,只支持 普通的select和select2,
+		而Select2面临到下面的问题：
+		    source会override ajax&data ,本地数据支持搜索，远端URL不支持
+				Official: matcher only works with locally data such as :data , 
+				if request data from remote, please return filtered-results on server-side ,
+			本地globalData.js,可以解决问题，但是不能及时更新,变量数组push来更新,也不能解决重新加载的问题
+			|ajax 属性 --------> Not Ok, 搜索不起作用
+			|source url 属性   --------> Not OK，搜索 不起作用
+			|data 属性 --------> OK
+			|source localArray  -------->属性OK
+			
+	【dimSearch_bs_normal】 :不需要x-editable的支持的.... 
+		//-----			
+Problems:
+	
+    

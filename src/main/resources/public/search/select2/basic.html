@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>select2</title>
+	<script src="../../js/jq/jquery-1.11.3.js"></script>
+	<link href="../css/bootstrap/bootstrap.min.css" rel="stylesheet">
+	<script src="../js/bootstrap/bootstrap.min.js"></script>
+	<script src="../js/vue/vue.min.js"></script>
+	
+	<link href="../../select2_3/select2.css" rel="stylesheet">
+	<link href="../../select2_3/select2-bootstrap.css" rel="stylesheet">
+	<script src="../../select2_3/select2.min.js"></script>
+	<script src="../../select2_3/select2_locale_zh-CN.js"></script>
+	 <!-- 
+  	  -->
+	  
+	<script>
+		function matchCustom(params,data){
+			//params is search string
+			//data is every option...
+			//this  function will pass every option to match with params 
+			/*
+				console.log("params: " +params + ": " +(typeof params))
+				console.log("params.term: " +params.term + ": " +(typeof params.term))
+				console.log("data: " +data + ": " +(typeof data))
+				console.log("data.text: " +data.text + ": " +(typeof data.text))
+			*/
+			if($.trim(params) === ''){
+				return data;
+			}
+			
+			var pinyin4data = "";
+			$.ajax({
+				url:"http://localhost:18000/getPinyin",
+				async:false,
+				data:{
+					"pystr":data
+				},
+				type:"get",
+				success:function(result){
+					pinyin4data = result;
+				}
+			});
+			
+			if(pinyin4data.indexOf(params) > -1){
+				return data;
+			}
+			if(data.indexOf(params) > -1){
+				return data;
+			}
+			return null;
+		}
+		
+	 	$(function(){
+			$("#abcd").change(function(){
+				console.log($(this).val());
+			});
+			$("#abcd").select2({
+				language: 'zh-CN',
+				matcher : matchCustom,
+				width: '50%',
+				placeholder:"请选择",
+				theme:"classic",
+				selectOnClose:false,
+				closeOnSelect:false,
+				//containerCss:{"background-color":"red"},
+				allwoClear:false,
+				maximumSelectionLength:3,
+				//minimumInputLength:1,
+				minimumResultsForSearch:Infinity,
+				templateResult: function(row){
+					return $(row.text + "abc");
+				}
+				
+			});
+			//---read from a Array and Ajax
+			var dataArr=[
+					{id:"enhancement",text:"enhancement"},
+					{id:"bug",text:"bug"},
+					{id:"duplicate",text:"duplicate"},
+					{id:"invalid",text:"invalid"},
+					{id:"wontfix",text:"wontfix"},
+					{id:"刹帝利",text:"刹帝利"},
+					{id:"婆罗门",text:"婆罗门"},
+					{id:"阿三",text:"阿三"}
+			];
+			$("#test").change(function(){
+				console.log($(this).val());
+			});
+			$("#test").select2({
+				data: dataArr,
+				/*
+				ajax:{
+					url:"./remoteOption2.json",
+					dataType: 'json',
+					processResults:function(data){
+						return {"results":data};
+					}
+				},
+				*/
+				matcher : matchCustom,
+				language: 'zh-CN',
+				width: '10%',
+				placeholder:"请选择",
+				//theme:"classic",
+				theme:"bootstrap",
+				selectOnClose:false,
+				closeOnSelect:false,
+				containerCss:{"background-color":"red"},
+				allowClear:false,
+				multiple : true,
+				minimumResultsForSearch:Infinity ,
+				templateResult: function(row){
+					return $(row + "abc");
+				},
+				tags:true
+			});
+				
+	 	});
+	</script>
+</head>
+<body>
+	<div class="input-group">
+	  	<span class="input-group-addon ">选择地区</span>
+	  	<input type="hidden" id="test" />
+	</div>
+	
+	
+	<select id="abcd"  multiple >
+		<optgroup label="north">
+			<option >北京</option>
+			<option >西安</option>
+			<option >沈阳</option>
+			<option >保定</option>
+			<option >天津</option>
+		</optgroup>
+		<optgroup label="south">
+			<option >上海</option>
+			<option >南京</option>
+			<option >北海</option>
+			<option >桂林</option>
+			<option >拉萨</option>
+			<option >大理</option>
+		</optgroup>
+		<optgroup label="west">
+			<option >新疆</option>
+			<option >兰州</option>
+		</optgroup>
+		<optgroup label="east" disabled>
+			<option >牡丹江</option>
+			<option >台湾</option>
+		</optgroup>
+	</select>
+</body>
+</html>

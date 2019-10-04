@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<script src="../../js/jq/jquery-1.11.3.js"></script>
+	<link href="../../css/bootstrap/bootstrap.min.css" rel="stylesheet">
+	<script src="../../js/bootstrap/bootstrap.min.js"></script>
+	<meta charset="UTF-8" />
+	<title>风火雷电</title>
+	<script src="../../js/vue/vue.min.js"></script>
+	<script src="../../js/vue/vue-router.min.js"></script>
+	<link href="../../css/iecas/bootstrap.iecas.css" rel="stylesheet"></link>
+	<style>
+	    div#app{
+	        position: relative ;
+	        top : -20px;
+	    }
+		a{
+	      text-decoration: none;
+	    }
+	    div.menu{
+	        float:left;
+	        marigin:10px,500px;
+	        background-color:black;
+	        height:500px;
+	        width:120px; 
+	        font-size:20px;
+
+	    }
+	    div.menu a{
+	        display:block;
+	        color:white;
+	        text-align:center;
+	        position:relative;
+	        top:20px;
+	    }
+	    div.menu a:link{
+	        color:white;
+	    }
+	    div.menu a:hover{
+	        color:red;
+	    }
+	    div.menu a:active{
+	        color:red;
+	    }
+	     
+	    div.workingRoom{
+	        margin-left:110px;
+	    }
+	     
+	</style>
+<body>
+<div class="alert alert-danger" role="alert" style="text-align:center;color:black;font-size:20px">元素种类</div>
+<div id="app">
+    <div class="menu">
+        <router-link to="/fengSource">风</router-link>
+        <router-link to="/huoSource">火</router-link>
+        <router-link to="/leiSource">雷</router-link>
+        <router-link to="/dianSource">电</router-link>
+        <router-link to="/yunSource">云</router-link>
+    </div>
+     
+    <div class="workingRoom">
+         <router-view></router-view>   
+    </div>
+ 
+</div>
+<script>
+    var fengSource = { template: '<p class="well">风</p>' };
+    var huoSource = { template: '<p class="well">火</p>' };
+    var leiSource = { template: '<p class="well">雷</p>' };
+    var dianSource = { template: '<p class="well">电</p>' };
+    var yunSource = { template: '<p class="well">云</p>' };
+    var routes = [
+        { path: '/', redirect: '/fengSource'}, // 这个表示会默认渲染 /user，没有这个就是空白
+        { path: '/huoSource', component: fengSource },
+        { path: '/leiSource', component: huoSource },
+        { path: '/dianSource', component: leiSource },
+        { path: '/yunSource', component: dianSource },
+        { path: '/fengSource', component: yunSource }
+    ];
+    var router = new VueRouter({
+        routes:routes
+    });
+    new Vue({
+        el:"#app",
+        router
+    })
+</script>
+</body>
+</html>
