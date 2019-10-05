@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<meta charset="UTF-8" />
+	<title>clockPicker</title>
+	<script src="../../js/jq/jquery-1.11.3.js"></script>
+	<link href="../../css/bootstrap/bootstrap.min.css" rel="stylesheet">
+	<script src="../../js/bootstrap/bootstrap.min.js"></script>
+	<link href="../../js/clock/bootstrap-clockpicker.css" rel="stylesheet">
+	<script src="../../js/clock/bootstrap-clockpicker.js"></script>
+	<link href="../../js/clock/flipclock.css" rel="stylesheet">
+	<script src="../../js/clock/flipclock.min.js"></script>
+	<script src="../../js/clock/clock.js"></script>
+<body>
+	<span>A lot of CSS method to get a clock-theme</span>
+	<a href="https://www.iteye.com/news/32845" target="_blank">access this web-site</a>
+	<br/>
+	<div class="input-group clockpicker" style="width:200px">
+	    <input type="text" class="form-control" value="09:30">
+	    <span class="input-group-addon">
+	        <span class="glyphicon glyphicon-time"></span>
+	    </span>
+	</div>
+	
+	<div class="flipclock"></div>
+	
+	<script type="text/javascript">
+		$('.clockpicker').clockpicker();
+		
+		var clock = $('.flipclock').FlipClock({
+		});
+	</script>
+</body>
+</html>

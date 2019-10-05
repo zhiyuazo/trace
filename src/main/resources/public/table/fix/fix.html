@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta charset="UTF-8" />
+	<title>tableFixed</title>
+	<script src="../../js/jq/jquery-1.11.3.js"></script>
+	<link href="../../css/bootstrap/bootstrap.min.css" rel="stylesheet">
+	<script src="../../js/bootstrap/bootstrap.min.js"></script>
+	<script src="../../js/vue/vue.min.js"></script>
+	<script src="../../js/table/jquery.fixedheadertable.min.js"></script>
+	<script src="../../js/table/tableHeadFixer.js"></script>
+</head>
+<body>
+	<div style="height:200px">
+		<table id="abc" class="table table-border table-striped">
+			<thead>
+				<tr>
+					<th>abc</th>
+					<th>def</th>
+					<th>ghi</th>
+					<th>jkl</th>
+					<th>mno</th>
+					<th>pqr</th>
+					<th>stu</th>
+					<th>vwx</th>
+					<th>yza</th>
+					<th>name</th>
+					<th>age</th>
+					<th>timeofcollection</th>
+					<th>timeofcollection</th>
+					<th>timeofcollection</th>
+					<th>timeofcollection</th>
+					<th>timeofcollection</th>
+					<th>timeofcollection</th>
+					<th>timeofcollection</th>
+					<th>latitude</th>
+					<th>longtude</th>
+					<th>north</th>
+					<th>sourth</th>
+					<th>west</th>
+					<th>female</th>
+					<th>big</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr v-for="i in vs">
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+					<td>4</td>
+					<td>5</td>
+					<td>6</td>
+					<td>7</td>
+					<td>8</td>
+					<td>9</td>
+					<td>10</td>
+					<td>11</td>
+					<td>12</td>
+					<td>13</td>
+					<td>14</td>
+					<td>15</td>
+					<td>16</td>
+					<td>17</td>
+					<td>18</td>
+					<td>19</td>
+					<td>20</td>
+					<td>21</td>
+					<td>22</td>
+					<td>23</td>
+					<td>24</td>
+					<td>25</td>
+					<td>26</td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="13">trytrytrytrytrytrytrytrytrytrytrytrytrytry</td>
+					<td colspan="13">trytrytrytrytrytrytrytrytrytrytrytrytrytry</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+	<script>
+		$(function(){
+			new Vue({
+				el:"#abc",
+				data:{
+					vs:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21]
+				},
+				beforeMount:function(){
+					console.log("bbb")
+				},
+				mounted:function(){
+					console.log("aaa")
+				}
+			})	
+			$("#abc").tableHeadFixer({'foot':true,'head':false});
+			
+		})
+	</script>
+</body>
+</html>
