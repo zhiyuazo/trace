@@ -10,6 +10,21 @@
 	<script src="../../js/vue/vue.min.js"></script>
 	<script src="../../js/table/jquery.fixedheadertable.min.js"></script>
 	<script src="../../js/table/tableHeadFixer.js"></script>
+	<style>
+	    table tbody {
+	        display:block;
+	        height:500px;
+	        overflow-y:scroll;
+	    }
+	    table thead, tbody tr {
+	        display:table;
+	        width:100%;
+	        table-layout:fixed;
+	    }
+	    table thead {
+	        width: calc( 100% - 1em )
+	    }
+	</style>
 </head>
 <body>
 	<div style="height:200px">
