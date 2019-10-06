@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<script src="../../js/jq/jquery-1.11.3.js"></script>
+	<link href="../../css/bootstrap/bootstrap.min.css" rel="stylesheet">
+	<link href="./btn-circle.css" rel="stylesheet">
+	<script src="../../js/bootstrap/bootstrap.min.js"></script>
+	<meta charset="UTF-8" />
+	<title>未知目标研判</title>
+</head>
+<body>
+	<div class="container-fluid" style="width:100%">
+		<div class="row">
+			<div class="col-xs-4" style="background-color:#cae5e8;border:1px solid green;height:900px">
+				<button id="wz0" class="btn btn-warning btn-circle" style="position:relative;left:100px;top:200px">0</button>
+				<button id="wz1" class="btn btn-warning btn-circle" style="position:relative;left:100px;top:600px">1</button>
+				<button id="wz2" class="btn btn-warning btn-circle" style="position:relative;left:250px;top:100px">2</button>
+				<button id="wz3" class="btn btn-warning btn-circle" style="position:relative;left:46px;top:300px">3</button>
+				<button id="wz4" class="btn btn-warning btn-circle" style="position:relative;left:0px;top:450px">4</button>
+				<button id="wz5" class="btn btn-warning btn-circle" style="position:relative;left:10px;top:200px">5</button>
+				<button id="wz6" class="btn btn-warning btn-circle" style="position:relative;left:0px;top:500px">6</button>
+				<button id="wz7" class="btn btn-warning btn-circle" style="position:relative;left:78px;top:200px">7</button>
+			</div>
+			<div class="col-xs-8" style="border:1px solid blue;height:900px">
+				<iframe id="subpage" src="./subpage.html" width="100%" height="100%" frameborder="0"></iframe>
+			</div>
+		</div>
+	</div>
+	<script>
+		setInterval(function(){
+			var message = "hello from home: " + (new Date().getTime());
+			console.log("home: sending msg: " + message);
+			if1.postMessage(message, domain);
+		},5000000);
+	
+		console.log("内部窗口： " + window.innerWidth);
+		console.log("内部窗口： " + window.innerHeight);
+		console.log("外部窗口： " + window.outerWidth);
+		console.log("外部窗口： " + window.outerWidth);
+		var domain = "http://localhost:8888";
+		var if1 = document.getElementById('subpage').contentWindow;
+		$(function(){
+		   var wzs = [
+				   {"alt":0,"bz":"","guanxi":"浓情蜜意","area":"四川","id":"98229","alias":"测1","mbbh":"3","cate":"牧师","name":"测0","pp":"亡灵","class":"艾泽拉斯","type":"尼米兹级"},
+				   {"alt":0,"bz":"","guanxi":"卿卿我我","area":"重庆","id":"98231","alias":"测2","mbbh":"7","cate":"骑士","name":"测1","pp":"德伊","class":"艾泽拉斯","type":"小蝌蚪级"},
+				   {"alt":0,"bz":"","guanxi":"若即若离","area":"广东","id":"98233","alias":"测3","mbbh":"9","cate":"恶魔","name":"测2","pp":"牛头","class":"艾泽拉斯","type":"大鹏级"},
+				   {"alt":0,"bz":"","guanxi":"肝肠寸断","area":"大连","id":"98225","alias":"测4","mbbh":"2","cate":"猎人","name":"测3","pp":"精灵","class":"艾泽拉斯","type":"蜩级"},
+				   {"alt":0,"bz":"","guanxi":"明月相思","area":"邯郸","id":"98229","alias":"测5","mbbh":"3","cate":"盗贼","name":"测4","pp":"矮人","class":"艾泽拉斯","type":"的卢马级"},
+				   {"alt":0,"bz":"","guanxi":"怦然心动","area":"保定","id":"98231","alias":"测6","mbbh":"7","cate":"术士","name":"测5","pp":"侏儒","class":"艾泽拉斯","type":"雪鹰级"},
+				   {"alt":0,"bz":"","guanxi":"藕断丝连","area":"西安","id":"98233","alias":"测7","mbbh":"8","cate":"法师","name":"测6","pp":"巨魔","class":"艾泽拉斯","type":"大象级"},
+				   {"alt":0,"bz":"","guanxi":"大厦将倾","area":"山西","id":"98225","alias":"测8","mbbh":"2","cate":"战士","name":"测7","pp":"人类","class":"艾泽拉斯","type":"狗级"}
+			];
+			$("#wz0").click(wzs,function(){
+				message = wzs[0]; 
+				if1.postMessage(message, domain);
+			});
+			$("#wz1").click(function(){
+				message = wzs[1]; 
+				if1.postMessage(message, domain);
+			});
+			$("#wz2").click(function(){
+				message = wzs[2]; 
+				if1.postMessage(message, domain);
+			});
+			$("#wz3").click(function(){
+				message = wzs[3]; 
+				if1.postMessage(message, domain);
+			});
+			$("#wz4").click(wzs,function(){
+				message = wzs[4]; 
+				if1.postMessage(message, domain);
+			});
+			$("#wz5").click(function(){
+				message = wzs[5]; 
+				if1.postMessage(message, domain);
+			});
+			$("#wz6").click(function(){
+				message = wzs[6]; 
+				if1.postMessage(message, domain);
+			});
+			$("#wz7").click(function(){
+				message = wzs[7]; 
+				if1.postMessage(message, domain);
+			});
+		});
+	</script>
+</body>
+</html>
