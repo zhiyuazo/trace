@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>模糊搜索+编辑</title>
+		<script src="../../js/jq/jquery-1.11.3.js"></script>
+		<link href="../../css/bootstrap/bootstrap.min.css" rel="stylesheet">
+		<link href="../../css/bootstrap/bootstrap-select.min.css" rel="stylesheet">
+		<script src="../../js/bootstrap/bootstrap.min.js"></script>
+		<script src="../../js/bootstrap/bootstrap-select.min.js"></script>
+		<script src="../../js/vue/vue.min.js"></script>
+	  	<script src="../subs/globalData.js"></script>
+</head>
+<body>
+	<div id="search_panel" style="width:100%">
+		<select v-on:change="srhWithNN" v-model="key_nation"  id="selectByNation" class="selectpicker" data-live-search="true" data-style="btn-danger" data-size="5" data-width="49%" >  
+			<option data-tokens="kong|null|wu|default">根据国家筛选</option>
+			<option v-for="i in globalConstNations" v-bind:data-tokens="i.token">{{i.text}}</option>
+		</select>
+		<select v-on:change="srhWithNN" v-model="key_name" id="selectByName" class="selectpicker" data-live-search="true" data-style="btn-danger" data-size="5" data-width="49%" >  
+			<option data-tokens="kong|null|wu|default">根据名称筛选</option>
+			<option v-for="i in globalConstNames" v-bind:data-tokens="i.token">{{i.text}}</option>
+		</select>
+	</div>
+	
+	<script>
+	$(function(){
+		var srhPanel = new Vue({
+			el:"#search_panel",
+			data:{
+				globalConstNations : [],
+				globalConstNames : [],
+				key_nation : "根据国家筛选",
+				key_name : "根据名称筛选"
+			},
+			created:function(){
+				this.getNations();
+				this.getNames();
+			},
+			methods:{
+				getNations:function(e){
+					self = this;
+					$.ajax({
+			            url: "http://localhost:18000/srhNationDict_token", 
+			            type:'get',
+			            async:false,
+			            data:{},
+			            success: function(result,status){
+			            	self.globalConstNations = result;
+			            }
+			        });	
+				},
+				getNames:function(e){
+					self = this;
+					$.ajax({
+			            url: "http://localhost:18000/srhNameDict_token", 
+			            type:'get',
+			            async:false,
+			            data:{},
+			            success: function(result,status){
+			            	self.globalConstNames = result;
+			            }
+			        });	
+				},
+				srhWithNN:function(){
+					console.log("run into srch withNN");
+					var nation_in_url ;
+					var name_in_url ;
+					if(this.key_nation=="根据国家筛选"){
+						nation_in_url = "";
+					}else{
+						nation_in_url = this.key_nation;
+					}
+					if(this.key_name=='根据名称筛选'){
+						name_in_url = "";
+					}else{
+						name_in_url = this.key_name;
+					}
+					$.ajax({
+			            url: "http://localhost:18000/dcmTask_data?srhKey="+nation_in_url + "_" + name_in_url, 
+			            type:'get',
+			            async:false,
+			            data:{},
+			            success: function(result,status){
+			            	tp.data_set = result;
+			            }
+			        });	
+				}
+			}
+		})
+	})
+	</script>
+	
+</body>
+</html>

@@ -17,7 +17,7 @@ import tool.bean.Devil;
 import tool.bean.Hero;	
 
 @Controller
-public class SimController {
+public class tableController {
 	
 	public ArrayList<Hero> lhero;
 	public ArrayList<Devil> ldevil;

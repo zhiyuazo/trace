@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>datetimeRange</title>
+<script src="../../js/jq/jquery-1.11.3.js"></script>
+<link href="../../css/bootstrap/bootstrap.min.css" rel="stylesheet">
+<script src="../../js/bootstrap/bootstrap.min.js"></script>
+<script src="../js/datetime/moment.min.js"></script>
+<script src="../js/datetime/daterangepicker.js"></script>
+<link href="../js/datetime/daterangepicker.css" rel="stylesheet">
+<script src="../js/datetime/bootstrap-timepicker.min.js"></script>
+<link href="../js/datetime/bootstrap-timepicker.min.css" rel="stylesheet">
+</head>
+<body>
+	<input  class="timeDelay form-control" type="text"  required/>
+	<script>
+		$(".timeDelay").timepicker({
+			defaultTime:'9:00',
+			showMeridian:false,
+			showSeconds:true,
+			icons: {
+				up:'glyphicon glyphicon-chevron-up',
+				down:'glyphicon glyphicon-chevron-down'
+			}
+		}).on("changeTime.timepicker",function(e){
+			console.log(e.time.value);
+		});
+	</script>
+	
+</body>
+</html>

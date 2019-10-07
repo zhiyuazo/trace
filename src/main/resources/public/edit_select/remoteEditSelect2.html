@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>模糊搜索+编辑</title>
+		<script src="../../js/jq/jquery-1.11.3.js"></script>
+		<link href="../../css/bootstrap/bootstrap.min.css" rel="stylesheet">
+		<link href="../../css/bootstrap/bootstrap-editable.css" rel="stylesheet">
+		<script src="../../js/bootstrap/bootstrap.min.js"></script>
+		<script src="../../js/bootstrap/bootstrap-editable.min.js"></script>
+		<script src="../../js/vue/vue.min.js"></script>
+		<link href="../../js/select2_3/select2.css" rel="stylesheet">
+		<link href="../../js/select2_3/select2-bootstrap.css" rel="stylesheet">
+		<script src="../../js/select2_3/select2.min.js"></script>
+		<script src="../../js/select2_3/select2_locale_zh-CN.js"></script>
+	  	<script src="./subs/globalData.js"></script>
+	  	  
+		<script>
+		 	$(function(){
+				$("#remote_edit_select2").editable({
+					type : "select2",
+					mode : "popup",
+					placement:"bottom",
+					select2:{
+						width: '200px',
+						placeholder:"请选择",
+						ajax:{
+							url:'/nationDict',
+							dataType:'json',
+							data:function(key,page){
+								return {"search_key":key}
+							},
+							results : function(data,page){
+								return {"results": data}
+							},
+							fromatResult:function(item){
+								return item.text + "nation"
+							},
+							fromatSelection:function(item){
+								return item.id + "nation"
+							}
+						}
+					}
+				})
+		 	})
+		</script>
+</head>
+<body>
+	<div style="text-align:center">
+		<a href="#" id="remote_edit_select2">中华</a>
+	</div>
+</body>
+</html>

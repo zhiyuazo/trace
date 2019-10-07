@@ -5,30 +5,19 @@
 <title>模糊搜索+编辑</title>
 		<script src="../../js/jq/jquery-1.11.3.js"></script>
 		<link href="../../css/bootstrap/bootstrap.min.css" rel="stylesheet">
-		<link href="../../css/bootstrap/bootstrap-select.min.css" rel="stylesheet">
 		<link href="../../css/bootstrap/bootstrap-editable.css" rel="stylesheet">
 		<script src="../../js/bootstrap/bootstrap.min.js"></script>
-		<script src="../../js/bootstrap/bootstrap-select.min.js"></script>
 		<script src="../../js/bootstrap/bootstrap-editable.min.js"></script>
 		<script src="../../js/vue/vue.min.js"></script>
-		<link href="../../select2_3/select2.css" rel="stylesheet">
-		<link href="../../select2_3/select2-bootstrap.css" rel="stylesheet">
-		<script src="../../select2_3/select2.min.js"></script>
-		<script src="../../select2_3/select2_locale_zh-CN.js"></script>
-		 <!-- 
-	  	  -->		
-	  	<script src="../subs/globalData.js"></script>
+		<link href="../../js/select2_3/select2.css" rel="stylesheet">
+		<link href="../../js/select2_3/select2-bootstrap.css" rel="stylesheet">
+		<script src="../../js/select2_3/select2.min.js"></script>
+		<script src="../../js/select2_3/select2_locale_zh-CN.js"></script>
+	  	<script src="./subs/globalData.js"></script>
 	  	  
 		<script>
+		
 		 	$(function(){
-				$("#test1").editable({
-					type:"select",
-					mode : "popup",
-					placement:"bottom",
-					sourceCache: true,
-					source: "/srhNationDict"
-				});
-				
 				function matchDimPinyin(srh_key,data){
 					if($.trim(srh_key) === ''){
 						return data;
@@ -40,7 +29,7 @@
 						data:{
 							"pystr":data
 						},
-						type:"get",
+						type:"post",
 						success:function(result){
 							pinyin4data = result;
 						}
@@ -54,35 +43,16 @@
 					return null;
 				}
 				
-				var dataArr=window.globalConfig.nations;
 				
-				$("#test2").editable({
+				$("#local_edit_select2").editable({
 					type : "select2",
 					mode : "popup",
 					placement:"bottom",
 					select2:{
-						data:dataArr , 
+						data:window.globalConfig.nations , 
 						width: '200px',
 						matcher : matchDimPinyin,
 						placeholder:"请选择"
-						/*
-						ajax:{
-							url:'/srh2NationDict',
-							dataType:'json',
-							data:function(key,page){
-								return {"search_key":key}
-							},
-							results : function(data,page){
-								return {"results": data}
-							},
-							fromatResult:function(item){
-								return item.text + "nation"
-							},
-							fromatSelection:function(item){
-								return item.id + "nation"
-							}
-						}
-						*/
 					}
 				})
 		 	})
@@ -90,9 +60,7 @@
 </head>
 <body>
 	<div style="text-align:center">
-		<a href="#" id="test1">中华</a>
-		<div></div>
-		<a href="#" id="test2">泰国</a>
+		<a href="#" id="local_edit_select2">泰国</a>
 	</div>
 </body>
 </html>

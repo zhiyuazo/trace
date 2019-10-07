@@ -1,0 +1,7 @@
+[
+		{"id":"enhancement","text":"enhancement"},
+		{"id":"bug","text":"bug"},
+		{"id":"duplicate","text":"duplicate"},
+		{"id":"invalid","text":"invalid"},
+		{"id":"wontfix","text":"wontfix"}
+]
