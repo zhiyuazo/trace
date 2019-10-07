@@ -2,16 +2,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>select2</title>
+<title>select2 localData USAGE</title>
 	<script src="../../js/jq/jquery-1.11.3.js"></script>
 	<link href="../css/bootstrap/bootstrap.min.css" rel="stylesheet">
 	<script src="../js/bootstrap/bootstrap.min.js"></script>
 	<script src="../js/vue/vue.min.js"></script>
 	
-	<link href="../../select2_3/select2.css" rel="stylesheet">
-	<link href="../../select2_3/select2-bootstrap.css" rel="stylesheet">
-	<script src="../../select2_3/select2.min.js"></script>
-	<script src="../../select2_3/select2_locale_zh-CN.js"></script>
+	<link href="../../js/select2_3/select2.css" rel="stylesheet">
+	<link href="../../js/select2_3/select2-bootstrap.css" rel="stylesheet">
+	<script src="../../js/select2_3/select2.min.js"></script>
+	<script src="../../js/select2_3/select2_locale_zh-CN.js"></script>
+	<script src="../constData/globalData.js"></script>
 	 <!-- 
   	  -->
 	  
@@ -32,7 +33,7 @@
 			
 			var pinyin4data = "";
 			$.ajax({
-				url:"http://localhost:18000/getPinyin",
+				url:"http://localhost:8888/getPinyin",
 				async:false,
 				data:{
 					"pystr":data
@@ -53,10 +54,7 @@
 		}
 		
 	 	$(function(){
-			$("#abcd").change(function(){
-				console.log($(this).val());
-			});
-			$("#abcd").select2({
+			$("#selectway").select2({
 				language: 'zh-CN',
 				matcher : matchCustom,
 				width: '50%',
@@ -72,33 +70,12 @@
 				templateResult: function(row){
 					return $(row.text + "abc");
 				}
-				
-			});
-			//---read from a Array and Ajax
-			var dataArr=[
-					{id:"enhancement",text:"enhancement"},
-					{id:"bug",text:"bug"},
-					{id:"duplicate",text:"duplicate"},
-					{id:"invalid",text:"invalid"},
-					{id:"wontfix",text:"wontfix"},
-					{id:"刹帝利",text:"刹帝利"},
-					{id:"婆罗门",text:"婆罗门"},
-					{id:"阿三",text:"阿三"}
-			];
-			$("#test").change(function(){
+			}).change(function(){
 				console.log($(this).val());
 			});
-			$("#test").select2({
-				data: dataArr,
-				/*
-				ajax:{
-					url:"./remoteOption2.json",
-					dataType: 'json',
-					processResults:function(data){
-						return {"results":data};
-					}
-				},
-				*/
+			//---read from a Array and Ajax
+			$("#inputway").select2({
+				data: window.globalConfig.nations,
 				matcher : matchCustom,
 				language: 'zh-CN',
 				width: '10%',
@@ -115,19 +92,27 @@
 					return $(row + "abc");
 				},
 				tags:true
+			}).change(function(){
+				console.log($(this).val());
 			});
 				
 	 	});
 	</script>
 </head>
 <body>
+	<!-- 
+		都可以用matcher ..
+			a.可以在Js定义数据，
+			b.可以load常数据
+			c.可以在HTML中定义数据
+	 -->
 	<div class="input-group">
 	  	<span class="input-group-addon ">选择地区</span>
-	  	<input type="hidden" id="test" />
+	  	<input type="hidden" id="inputway" />
 	</div>
 	
 	
-	<select id="abcd"  multiple >
+	<select id="selectway"  multiple >
 		<optgroup label="north">
 			<option >北京</option>
 			<option >西安</option>

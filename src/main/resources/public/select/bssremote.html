@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>bs-select remoteData USAGE</title>
+		<script src="../../js/jq/jquery-1.11.3.js"></script>
+		<link href="../../css/bootstrap/bootstrap.min.css" rel="stylesheet">
+		<link href="../../css/bootstrap/bootstrap-select.min.css" rel="stylesheet">
+		<script src="../../js/bootstrap/bootstrap.min.js"></script>
+		<script src="../../js/bootstrap/bootstrap-select.min.js"></script>
+		<script src="../../js/vue/vue.min.js"></script>
+	  	<script src="../constData/globalData.js"></script>
+	  	<script src="./bssremote.js"></script>
+	 	<style>
+		.npc {
+			display: inline-block;
+			position: relative;
+			left:50px;
+			width: 250px;
+			height: 150px;
+			margin: 10px;
+			padding: 15px;
+			background-color: #d9edf7;
+			border-radius: 18px;
+			color: #337ab7;
+			text-decoration: none;
+			font-size: 15px;
+			font-family: Helvetica;
+			border-spacing: 0;
+			border-collapse: collapse;
+		}
+		.npc:hover{
+			background-color: #FFDEAD;
+		}
+		.SELECTED_Mark{
+			background-color: #4EEE94;
+		}
+	</style>
+</head>
+<body>
+	<div id="npcTMPL" style="display:none">
+	    <div class="npc" v-on:click="selectedMark">
+	        <span class="name">
+	            {{profile.name}}
+	        </span>
+	        <span class="dwsx pull-right" style="font-weight:bold">
+	            {{profile.zhiye}}
+	        </span>
+	        <br/>
+	        <br/>
+	        <span style="text-align:center ;display:block">{{profile.tianfu}}+{{profile.wuqi}}</span>
+	        <br/>
+	        <br/>
+	        <span class="nation pull-right" >
+	            [{{profile.zhenying}}]
+	        </span>
+	    </div>
+	</div>
+	
+	<div id="search_panel" style="width:100%">
+		<select v-on:change="srhWithNN" v-model="key_nation"  id="selectByNation" class="selectpicker" data-live-search="true" data-style="btn-danger" data-size="5" data-width="49%" >  
+			<option data-tokens="kong|null|wu|default">根据国家筛选</option>
+			<option v-for="i in globalConstNations" v-bind:data-tokens="i.token">{{i.text}}</option>
+		</select>
+		<select v-on:change="srhWithNN" v-model="key_name" id="selectByName" class="selectpicker" data-live-search="true" data-style="btn-danger" data-size="5" data-width="49%" >  
+			<option data-tokens="kong|null|wu|default">根据名称筛选</option>
+			<option v-for="i in globalConstNames" v-bind:data-tokens="i.token">{{i.text}}</option>
+		</select>
+	</div>
+	
+	<div id="npcPool" style="height:150px ;overflow-y:auto;" dir="ltr">
+		<npcentity dir="ltr" v-for="t in data_set" v-bind:profile="t"></npcentity>
+	</div>
+	
+	<div id="ctl_panel">
+		<table  class="table table-bordered">
+			<thead style="background-color:black; color:white">
+				<tr>
+					<th >组队编号</th>
+					<th >副本名称</th>
+				</tr>
+			</thead>
+			<tbody >
+				<tr>
+					<td><input class="form-control" v-model="ctl_group_id"  type="number" name="group_id" min="1" max="65536" required/></td>
+					<td><input class="form-control" v-model="ctl_group_name" type="text" name="group_name" required placeholder="副本名称"/></td>
+				</tr>
+			</tbody>
+		</table>
+		<table  class="table table-bordered">
+			<thead style="background-color:black; color:white">
+				<tr>
+					<th>队员编号</th>
+					<th>队员摘要</th>
+					<th>魔法值</th>
+					<th>血量值</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr v-for="st,index in ctl_subGroupFor" class="subGroup">
+					<td><input  class="form-control" readonly v-bind:value="index+1"  name="sub_group_id"  required/></td>
+					<td><input  class="form-control" readonly v-bind:value="st" type="text" name="sub_group_for" required /></td>
+					<td><input  class="form-control" value=80 type="number" name="sub_group_blue" min="1" max="100"/></td>
+					<td><input  class="form-control" value=120 type="number" name="sub_group_blood" min="1" max="300"/></td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="6">
+						<button class="btn btn-success btn-lg" v-on:click="send" style="width:100%">进入副本</button>
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+	
+</body>
+</html>

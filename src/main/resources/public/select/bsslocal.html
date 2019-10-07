@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>BSselect basic USAGE</title>
+<title>BSselect local data USAGE</title>
 		<script src="../../js/jq/jquery-1.11.3.js"></script>
 		<link href="../../css/bootstrap/bootstrap.min.css" rel="stylesheet">
 		<link href="../../css/bootstrap/bootstrap-select.min.css" rel="stylesheet">
@@ -13,10 +13,10 @@
 		<script src="../../js/vue/vue.min.js"></script>
 		<script>
 		 	$(function(){
-				$("#abc").change(function(){
+				$("#optway").change(function(){
 					console.log($(this).val());
 				})
-				$("#abcd").selectpicker({
+				$("#jqway").selectpicker({
 					style:"btn-success",
 					liveSearch:true , 
 					title:"Please select" 
@@ -25,7 +25,7 @@
 		</script>
 </head>
 <body>
-	<select id="abcd">
+	<select id="jqway">
 			<option data-icon="glyphicon-hand-down" data-tokens="bj|beijing">北京</option>
 			<option data-content="<span class='badge badge-success'>西安</span>" data-tokens="xa|xian">西安</option>
 			<option data-subtext="liaodong" data-tokens="sy|shenyang" >沈阳</option>
@@ -33,7 +33,7 @@
 			<option title="麻花的省份" data-tokens="tj|tianjin" >天津</option>
 	</select> 
 	
-	<select id="abc" 
+	<select id="optway" 
 			class="selectpicker show-tick show-menu-arrow dropup" 
 			data-width="auto" 
 			data-selected-text-format="values" 

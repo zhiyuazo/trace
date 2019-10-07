@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>select2 remoteData USAGE</title>
+	<script src="../../js/jq/jquery-1.11.3.js"></script>
+	<link href="../css/bootstrap/bootstrap.min.css" rel="stylesheet">
+	<script src="../js/bootstrap/bootstrap.min.js"></script>
+	<script src="../js/vue/vue.min.js"></script>
+	
+	<link href="../../js/select2_3/select2.css" rel="stylesheet">
+	<link href="../../js/select2_3/select2-bootstrap.css" rel="stylesheet">
+	<script src="../../js/select2_3/select2.min.js"></script>
+	<script src="../../js/select2_3/select2_locale_zh-CN.js"></script>
+	 <!-- 
+  	  -->
+	  
+	<script>
+	 	$(function(){
+			$(".inputway").select2({
+				ajax:{
+					url:'/nationDict',
+					dataType:'json',
+					data:function(key,page){
+						return {"search_key":key}
+					},
+					results : function(data,page){
+						return {"results": data}
+					},
+					fromatResult:function(item){
+						return item.text + "nation"
+					},
+					fromatSelection:function(item){
+						return item.id + "nation"
+					}
+				},
+				width: '200px',
+				placeholder:"请选择"
+			}).change(function(){
+				console.log($(this).val());
+			});
+	 	});
+	</script>
+</head>
+<body>
+<!--
+	不知道为什么，都不行呢 ,选择不上,select2问题好多
+ -->
+	<div class="input-group">
+	  	<span class="input-group-addon ">选择地区</span>
+	  	<input type="hidden" class="inputway" />
+	</div>
+	<div>
+		<a href="#" class="inputway">中华</a>
+	</div>
+</body>
+</html>

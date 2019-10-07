@@ -19,7 +19,7 @@ complete:
 		遗憾的是不支持bs-select,只支持 普通的select和select2,
 		而Select2面临到下面的问题：
 		    source会override ajax&data ,本地数据支持搜索，远端URL不支持
-				Official: matcher only works with locally data such as :data , 
+				Official: [matcher] only works with locally data such as :data , 
 				if request data from remote, please return filtered-results on server-side ,
 			本地globalData.js,可以解决问题，但是不能及时更新,变量数组push来更新,也不能解决重新加载的问题
 			|ajax 属性 --------> Not Ok, 搜索不起作用
