@@ -12,6 +12,12 @@ import java.util.List;
 import org.apache.logging.log4j.util.Strings;
 
 public class DBUtilsPlus{
+	public static void executeInsert(String sql , Object o1 , Object o2) {
+	}
+	public static void executeInsert(String sql , Object o1 , Object o2,Object o3) {
+	}
+	public static void executeInsert(String sql , Object o1 , Object o2,Object o3,Object o4) {
+	}
 	public static String getTableSql(Class c , String tname) throws SQLException {
 		String preSQL = "DROP TABLE IF EXISTS " + tname + ";\n";
 		String headSQL = "CREATE TABLE \"public\".\"" + tname + "\"(" + "\n" ;

@@ -1,0 +1,9 @@
+{
+	....JSON body....
+}JSON中， 无键且Editable为text型，显示undefinedText定义值，无键且Editable为Select型，显示为Empty
+
+
+{
+	....JSON body...
+} JSON中的NUll 值，在表中显示为[Object,Object],即，有键有值情况
+

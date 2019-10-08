@@ -1,0 +1,21 @@
+NOTE@Najing:
+完成：
+	var a = moment(); console.log(a); //内部存，UTC时间，包含时区信息...
+	console.log(a.format());  //解析为本地时间...后面带上时区标志
+	var b = moment.utc();  console.log(b);//内部存，UTC时间，包含时区信息...
+	console.log(b.format()); //解析为UTC时间...后面带上时区标志
+	console.log(moment.parseZone("2019-09-20T10:37:14+08:00").utcOffset()) //this is 480, zone-offset=480..
+	console.log(moment.parseZone("2019-09-20T10:37:14Z").utcOffset()) //this is 0, zone-offset=0..
+    -------
+	1-->moment.js  不指定utc的情况下，默认得到的时间为系统所在时区的时间。
+	2-->picker.endDate.format("YYYY-MM-DD HH:mm:ss"); 得到的是一个时间字符串， 如果moment.js 用utc，则为UTC字符串，如果不是，则为系统时间字符串
+	3-->java 收到字符串
+	4-->DateFormat.getDateTimeInstance().parse(字符串[不带时区])，得到UTC Date 对象  
+	5-->DateFormat.getDateTimeInstance().parse(字符串[不带时区])，得到UTC Date 对象 
+				[DateTimeInstance] 可以解析时间
+				[DateInstances] 不能解析时间
+	
+	6-->for(String tmp : TimeZone.getAvailableIDs()) { java 得到可用的时区
+			 System.out.println(tmp);
+	    }
+    

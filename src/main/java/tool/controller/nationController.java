@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
+import pinyin.PinyinUtil;
 import tool.bean.WowNpc;
-import util.PinyinUtil;
 @Controller
 public class nationController {
 	@RequestMapping("/getPinyin")

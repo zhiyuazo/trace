@@ -1,0 +1,6 @@
+BootStrap 栅格系统
+	<!-- 
+		container占不了全屏 
+		container-fiuled 全屏 
+		container-fluid  有15px的padding
+	-->

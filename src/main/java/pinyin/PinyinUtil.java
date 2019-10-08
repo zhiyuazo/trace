@@ -1,4 +1,4 @@
-package util;
+package pinyin;
 import java.util.Arrays;
 
 import net.sourceforge.pinyin4j.PinyinHelper;

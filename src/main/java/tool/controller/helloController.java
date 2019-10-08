@@ -3,15 +3,12 @@ package tool.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONUtil;
-import util.PinyinUtil;
 
 @Controller
 public class helloController {
