@@ -1,8 +1,7 @@
-package tool.bean; 
+package controllerSet.bean; 
 
 import java.util.Arrays;
 
-import cn.hutool.core.convert.Convert;
 import cn.hutool.core.util.RandomUtil;
 
 public class Hero {

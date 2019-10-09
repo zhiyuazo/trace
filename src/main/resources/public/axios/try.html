@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<title>Axios RestFull</title>
+	<script src="../../js/jq/jquery-1.11.3.js"></script>
+	<link href="../../css/bootstrap/bootstrap.min.css" rel="stylesheet">
+	<script src="../../js/bootstrap/bootstrap.min.js"></script>
+	<script src="../../js/vue/vue.min.js"></script>
+	<script src="../../js/vue/axios.min.js"></script>
+	<script src="./try.js"></script>
+</head>
+<body>
+	<div id="panel">
+		<table  class="table table-bordered">
+			<thead style="background-color:black; color:white">
+				<tr>
+					<th>id</th>
+					<th>name</th>
+					<th>alias</th>
+					<th>label</th>
+					<th>age</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="newab">
+					<form>
+						<td><input  class="form-control" v-model="data_set_send[0]" type="text" name="ab_id"/></td>
+						<td><input  class="form-control" v-model="data_set_send[1]" type="text" name="ab_name"/></td>
+						<td><input  class="form-control" v-model="data_set_send[2]" type="text" name="ab_alias"/></td>
+						<td><input  class="form-control" v-model="data_set_send[3]" type="text" name="ab_label"/></td>
+						<td><input  class="form-control" v-model="data_set_send[4]" type="text" name="ab.age"></td>
+					</form>
+				</tr>
+				<tr>
+					<td colspan="9">
+						<button class="btn btn-success " v-on:click="save" style="width:24%;">保存</button>
+						<button class="btn btn-success " v-on:click="update" style="width:24%;">更新上面</button>
+						<button class="btn btn-success " v-on:click="remove" style="width:24%;">清除上面</button>
+						<button class="btn btn-success " v-on:click="clean" style="width:24%;">清除所有</button>
+					</td>
+				</tr>
+				<tr v-for="d,index in data_set_display" >
+					<td><input  class="form-control" readonly v-bind:value="d.id" type="text" name="ab_id"/></td>
+					<td><input  class="form-control" readonly v-bind:value="d.name" type="text" name="ab_name"/></td>
+					<td><input  class="form-control" readonly v-bind:value="d.alias" type="text" name="ab_alias"/></td>
+					<td><input  class="form-control" readonly v-bind:value="d.label" type="text" name="ab_label"/></td>
+					<td><input  class="form-control" readonly v-bind:value="d.age" type="text"/ name="ab.age"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

@@ -1,4 +1,4 @@
-package	tool.controller ;
+package	controllerSet.controller ;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
-import tool.bean.Devil;
-import tool.bean.Hero;	
+import controllerSet.bean.Devil;
+import controllerSet.bean.Hero;	
 
 @Controller
 public class tableController {
@@ -40,7 +40,6 @@ public class tableController {
 			tmp.setRef2hero(Math.round(((i+3)/3)));
 			ldevil.add(tmp);
 		}
-		System.out.println("produces:  " + ldevil.size());
 		
 		for (Hero h : lhero) {
 			hs_nation.add(h.getheroNation());
@@ -66,7 +65,6 @@ public class tableController {
 			propDict.put(unit, unit);
 		}
 		long e = System.currentTimeMillis();
-		System.out.println("init devils cost: " + (e-s));
 	}
 	@RequestMapping("/getNationDict")
 	@ResponseBody

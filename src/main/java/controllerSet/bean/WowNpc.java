@@ -1,4 +1,4 @@
-package tool.bean;
+package controllerSet.bean;
 
 public class WowNpc {
 	public int id;

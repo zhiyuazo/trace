@@ -1,4 +1,4 @@
-package tool.controller;
+package controllerSet.controller;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
+import controllerSet.bean.WowNpc;
 import pinyin.PinyinUtil;
-import tool.bean.WowNpc;
 @Controller
 public class nationController {
 	@RequestMapping("/getPinyin")
@@ -89,7 +89,6 @@ public class nationController {
 				auto_inc ++;
 			}
 		}
-		hs_nation.forEach(n->System.out.println(n));
 	}
 	@RequestMapping("/nationDict")
 	@ResponseBody
@@ -112,7 +111,7 @@ public class nationController {
 						}
 					}
 				}
-				return	res;
+				return	res;//
 			}
 		}else {
 			return nationDict;
