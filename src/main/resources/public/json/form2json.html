@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>BSselect local data USAGE</title>
+		<script src="../../js/jq/jquery-1.11.3.js"></script>
+		<link href="../../css/bootstrap/bootstrap.min.css" rel="stylesheet">
+		<link href="../../css/bootstrap/bootstrap-select.min.css" rel="stylesheet">
+		<link href="../../css/bootstrap/bootstrap-editable.css" rel="stylesheet">
+		<script src="../../js/bootstrap/bootstrap.min.js"></script>
+		<script src="../../js/bootstrap/bootstrap-select.min.js"></script>
+		<script src="../../js/bootstrap/bootstrap-editable.min.js"></script>
+		<script src="../../js/vue/vue.min.js"></script>
+		<script>
+		 	$(function(){
+		 		//form serialize to Json Object
+		 		$.fn.serializeObject = function(){
+		 			var o = {};
+		 			var a = this.serializeArray();
+		 			
+		 			$.each(a,function(){
+		 				if(o[this.name] !== undefined){
+		 					if(!o[this.name].push){
+		 						o[this.name] = [o[this.name]];
+		 					}
+		 					o[this.name].push(this.value||'');
+		 				}else{
+		 					o[this.name] = this.value||'';
+		 				}
+		 			});
+		 			return o;
+		 		}
+		 	})
+		</script>
+</head>
+<body>
+<!-- TBA -->
+</body>
+</html>
