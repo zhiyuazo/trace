@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Vue tmpl</title>
+		<script src="../../js/jq/jquery-1.11.3.js"></script>
+		<link href="../../css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+		<link href="../../css/bootstrap/bootstrap-select.min.css" rel="stylesheet" />
+		<script src="../../js/bootstrap/bootstrap.min.js"></script>
+		<script src="../../js/bootstrap/bootstrap-select.min.js"></script>
+		<script src="../../js/vue/vue.min.js"></script>
+		<script src="./tmpl.js"></script>
+	  <style>
+		.task {
+			display: inline-block;
+			position: relative;
+			left:50px;
+			width: 200px;
+			height: 80x;
+			margin: 10px;
+			padding: 15px;
+			background-color: #d9edf7;
+			border-radius: 18px;
+			color: #337ab7;
+			text-decoration: none;
+			font-size: 10px;
+			font-family: Helvetica;
+			border-spacing: 0;
+			border-collapse: collapse;
+		}
+		.task:hover{
+			background-color: #FFDEAD;
+		}
+		.SELECTED_Mark{
+			background-color: #4EEE94;
+		}
+	</style>
+</head>
+<body>
+<div id="tmpl" style="display:none">
+	<div class="task" v-on:click="selectedMark">
+	    <span class="name">
+	        {{detailz.name}}
+	    </span>
+	    <span class="label-task pull-right" style="font-weight:bold">
+	        {{detailz.labelt}}
+	    </span>
+	    <br/>
+	    <span style="text-align:center ;display:block">{{detailz.owner}}+{{detailz.group}}</span>
+	    <br/>
+	    <span class="nanyi pull-right" >
+	        [{{detailz.nanyi}}]
+	    </span>
+	</div>
+</div>
+	<div id="taskPool">
+		<div  style="height:350px ;overflow-y:auto;" dir="ltr">
+			<tentity dir="ltr" v-for="t in task_set" v-bind:detailz="t"></tentity>
+		</div>
+		<div style="height:350px ;overflow-y:auto;border:1px solid red" dir="ltr" > 
+			<tentity dir="ltr" v-for="t in task_marked" v-bind:detailz="t"></tentity>
+		</div>
+	</div>	
+
+</body>
+</html>

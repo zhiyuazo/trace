@@ -1,0 +1,16 @@
+Vue 初始化数据
+一般在:
+methods:{
+	initData:function(){
+		写数据来源
+		目前:
+			(
+				这里直接JS 函数造数据有问题
+				Ajax请求没有问题
+			)
+	}
+},
+created:function(){
+	this.initData();
+	执行获取数据 (这里也不能直接写JS 函数造数据)
+}
