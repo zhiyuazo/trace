@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JS 日期操作</title>
+		<script src="../../js/jq/jquery-1.11.3.js"></script>
+		<link href="../../css/bootstrap/bootstrap.min.css" rel="stylesheet">
+		<link href="../../css/bootstrap/bootstrap-select.min.css" rel="stylesheet">
+		<script src="../../js/bootstrap/bootstrap.min.js"></script>
+		<script src="../../js/bootstrap/bootstrap-select.min.js"></script>
+		<script src="../../js/vue/vue.min.js"></script>
+</head>
+<body>
+	<button class="btn btn-primary" onclick="getMonthLastDay()">当月首天</button>
+	<button class="btn btn-primary" onclick="getSpecLastDay('2018-10')">当月尾天</button>
+	<div id="display">
+		js-date basic
+	</div>
+		<script>
+				//LastDay of current month
+				function getMonthLastDay(){
+					var now = new Date();
+					var year = now.getFullYear();
+					var mon = now.getMonth()+1;
+					if(mon<10){
+						mon = "0" + mon;
+					}
+					mon = "-" + mon;
+					var dstr = year.toString() + mon.toString();
+					var lastDay = getDayCountInMon(dstr);
+					$("#display").append("<br/>当月最后一天为: " + lastDay);
+				}
+				//LastDay days of Specified year+month
+				function getSpecLastDay(yearmonth){
+					var lastDay = getDayCountInMon(yearmonth);
+					$("#display").append("<br/>"+yearmonth+"最后一天为: " + lastDay);
+				}
+				
+				
+				//basic
+				function getDayCountInMon(yearmonth){
+					console.log(yearmonth)
+					var arr = yearmonth.split("-");
+					var localYear = parseInt(arr[0]);
+					var localMon = parseInt(arr[1]);
+					var localDate = new Date(localYear,localMon,0);
+					return localDate.getDate();
+				}
+				
+		</script>
+</body>
+</html>
