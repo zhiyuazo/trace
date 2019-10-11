@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Vue Render</title>
+		<script src="../../js/jq/jquery-1.11.3.js"></script>
+		<link href="../../css/bootstrap/bootstrap.min.css" rel="stylesheet">
+		<link href="../../css/bootstrap/bootstrap-select.min.css" rel="stylesheet">
+		<link href="../../css/bootstrap/bootstrap-editable.css" rel="stylesheet">
+		<script src="../../js/bootstrap/bootstrap.min.js"></script>
+		<script src="../../js/bootstrap/bootstrap-select.min.js"></script>
+		<script src="../../js/bootstrap/bootstrap-editable.min.js"></script>
+		<script src="../../js/vue/vue.min.js"></script>
+		<script>
+		 		$.fn.serializeObject = function(){
+		 			var o = {};
+		 			var a = this.serializeArray();
+		 			
+		 			$.each(a,function(){
+		 				if(o[this.name] !== undefined){
+		 					if(!o[this.name].push){
+		 						o[this.name] = [o[this.name]];
+		 					}
+		 					o[this.name].push(this.value||'');
+		 				}else{
+		 					o[this.name] = this.value||'';
+		 				}
+		 			});
+		 			return o;
+		 		}
+		 	$(function(){
+		 		var test = new Vue({
+					el: "#test",
+					data:{
+						prop:{},
+					},
+					watch:{
+						//method-1  不可以进行自动的json 转换
+						//prop : function(v1){
+						 	//var all = JSON.stringify($("form").serializeObject());
+				 			//$("#display").append("watch自动转换: " + all+"<br/>");
+						//}
+						//method-2  不可以进行自动的json 转换
+						prop : {
+							handler:function(v1){
+								this.$nextTick(function(){//下一次渲染完成调用
+								 	var all = JSON.stringify($("form").serializeObject());
+						 			$("#display").append("watch自动转换: " + all+"<br/>");	
+								});
+							},
+							deep:true
+						}
+					},
+					methods:{
+						init: function(e){
+							var tmp ={
+								"name":"zhiyuan",
+								"sex" : "femal"
+							}
+							this.prop = tmp;
+						},
+						manual2json:function(){
+						 	var all = JSON.stringify($("form").serializeObject());
+				 			$("#display").append("手工转换: " + all+"<br/>");	
+						}
+					}
+				});
+		 	})
+		</script>
+</head>
+<body>
+	<a href="https://blog.csdn.net/qq_34223398/article/details/79292319" target="_blank">Vue在页面数据渲染完成之后调用__问题描述</a>
+	<div id="test">
+		<div>
+			<form>
+				<input type="text" v-model="prop.name" name="name"></input>
+				<input type="text" v-model="prop.sex" name="sex"></input>
+			</form>
+		</div>
+			<button class="btn btn-success" v-on:click="init">初始化数据</button>
+			<button class="btn btn-success" v-on:click="manual2json">手工转化为JSON</button>
+			<div id="display"></div>
+	</div>
+	
+</body>
+</html>
