@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Vue MonitorArr</title>
+		<script src="../js/jq/jquery-1.11.3.js"></script>
+		<link href="../css/bootstrap/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/bootstrap/bootstrap-select.min.css" rel="stylesheet">
+		<link href="../css/bootstrap/bootstrap-editable.css" rel="stylesheet">
+		<script src="../js/bootstrap/bootstrap.min.js"></script>
+		<script src="../js/bootstrap/bootstrap-select.min.js"></script>
+		<script src="../js/bootstrap/bootstrap-editable.min.js"></script>
+		<script src="../js/vue/vue.min.js"></script>
+		<script src="./watchArrJson.js"></script>
+</head>
+<body>
+ 	<div class="alert alert-info" role="alert">未知态势研判区</div>
+	<div class="container-fluid" style="width:100%">
+		<!-- 需要$event Vue中才能传e -->
+		<div class="row">								
+			<div id="testWork" class="col-xs-4" v-on:drop="drop($event)" v-on:dragover="allowDrop($event)" v-on:dragenter="dragenter($event)" v-on:dragleave="dragleave($event)" >
+				<table  class="table table-striped table-bordered"   >
+					<thead>
+						<th>name</th>		
+						<th>alias</th>		
+						<th>sex</th>		
+						<th>age</th>		
+					</thead>
+					<tbody>
+						<tr v-for='i in dpool'>
+							<td>{{i.name}}</td>
+							<td>{{i.alias}}</td>
+							<td>{{i.sex}}</td>
+							<td>{{i.age}}</td>
+						</tr>
+					</tbody>
+				</table>
+				<button class="btn btn-success" v-on:click="addArr">Add Array</button>
+				<button class="btn btn-success" v-on:click="subArr">Sub Array</button>
+				<button class="btn btn-success" v-on:click="addJson">Add Json</button>
+				<button class="btn btn-success" v-on:click="changeJson">Change Json</button>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
