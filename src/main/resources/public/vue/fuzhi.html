@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Vue TimeTask</title>
+<title>Vue解决引用赋值</title>
 		<script src="../../js/jq/jquery-1.11.3.js"></script>
 		<link href="../../css/bootstrap/bootstrap.min.css" rel="stylesheet">
 		<link href="../../css/bootstrap/bootstrap-select.min.css" rel="stylesheet">
@@ -13,33 +13,35 @@
 		<script src="../../js/vue/vue.min.js"></script>
 		<script>
 		 	$(function(){
-		 		var filterDate = new Vue({
+		 		var test = new Vue({
 					el: "#test",
 					data:{
-						data_set:[],
+						a:{"name":"iecas","body":175},
+						b : {}
 					},
 					methods:{
-						fetch: function(e){
-							$(this.$el).find(".content").append("fetch something<br/>")
-							console.log("fetch somethings...")
+						reset: function(e){
+							//如果仅仅如此 ， reset一次后， this.a也随之改变
+							this.b = this.a; 
+						},
+						reset1: function(e){
+							//这样避免上面的赋值引用
+							this.b = JSON.parse(JSON.stringify(this.a));
 						}
-					},
-				    mounted:function(){ 
-				    	if(this.timer){
-				    		clearInterval(this.timer);
-				    	}else{
-				    		this.timer = setInterval(()=>{
-				    			this.fetch();
-				    		},1300);
-				    	}
-				    }
+						
+					}
 				});
 		 	})
 		</script>
 </head>
 <body>
 	<div id="test">
-		<p class="content"></p>
+		<div>
+			<input type="text" v-model="b.name"></input>
+			<input type="text" v-model="b.body"></input>
+			<button class="btn btn-success" v-on:click="reset">reset</button>
+			<button class="btn btn-success" v-on:click="reset1">reset1</button>
+		</div>
 	</div>
 </body>
 </html>
