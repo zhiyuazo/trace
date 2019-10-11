@@ -30,10 +30,25 @@
 		 			});
 		 			return o;
 		 		}
+		 		
+		 		$("#action").click(function(){
+				 	var all = JSON.stringify($("form").serializeObject());
+		 			$("#display").append(all);	
+		 		});
 		 	})
 		</script>
 </head>
 <body>
-<!-- TBA -->
+	<form>
+		<input type="text" value="zhiyuan" name="user" />
+		<input type="text" value="zzy" name="alias" />
+		<input type="text" value="nokia" name="pre-company" />
+		<input type="text" value="iecas" name="current-company" />
+		<input type="number" value="30" name="age" />
+	</form>
+	<button id="action" class="btn btn-success">生成jsonString</button>
+	
+	<div id="display"></div>
+
 </body>
 </html>
