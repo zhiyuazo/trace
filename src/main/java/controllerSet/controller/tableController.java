@@ -31,11 +31,11 @@ public class tableController {
 		lhero = new ArrayList<>();
 		long s = System.currentTimeMillis();
 		System.out.println();
-		for (int i = 0; i < 20; i++) {
+		for (int i = 0; i < 200; i++) {
 			lhero.add(new Hero(i+1));
 		}
 		ldevil= new ArrayList<>();
-		for (int i = 0; i < 60; i++) {
+		for (int i = 0; i < 400; i++) {
 			Devil tmp = new Devil(i+1);
 			tmp.setRef2hero(Math.round(((i+3)/3)));
 			ldevil.add(tmp);
@@ -92,11 +92,22 @@ public class tableController {
 		return	propDict;
 	}
 	
-	@RequestMapping("/hero")
+	@RequestMapping("/hero_s") //this is for server 分页
 	@ResponseBody
-	public JSONArray hero() {
+	public JSONObject hero_s(HttpServletRequest req) {
+		req.getParameterMap().forEach((k,v)->System.out.println("on fatherreq: " + k + " : " +v[0]));
+		JSONArray res_arr = JSONUtil.parseArray(lhero,false);
+		JSONObject  res_obj =  JSONUtil.createObj();
+		res_obj.put("rows", res_arr);
+		res_obj.put("total", res_arr.size());
+		return	res_obj; //客户端分页必须返回这样的格式
+	}
+	
+	@RequestMapping("/hero") //below if for client 分页
+	@ResponseBody
+	public JSONArray hero(HttpServletRequest req) {
+		req.getParameterMap().forEach((k,v)->System.out.println("on fatherreq: " + k + " : " +v[0]));
 		JSONArray res = JSONUtil.parseArray(lhero,false);
-		System.out.println(lhero.size() + " : " + res);
 		return	res;
 	}
 	
@@ -134,7 +145,6 @@ public class tableController {
 	public String hero_update(HttpServletRequest req) {
 		String str = req.getParameter("para_editH");
 		String jsonstr = JSONUtil.formatJsonStr(str );
-		System.out.println(jsonstr);
 		Hero ah  =  JSONUtil.parseObj(jsonstr).toBean(Hero.class);
 		int aim = ah.getheroId();
 		
@@ -142,7 +152,6 @@ public class tableController {
 			if (t.getheroId() == aim) {
 				int index = lhero.indexOf(t);
 				lhero.set(index, ah);
-				System.out.println("edit done with: " + ah);
 				break;
 			}
 		}
@@ -155,8 +164,6 @@ public class tableController {
 		String str = req.getParameter("para_editHduo");
 		String jsonstr = JSONUtil.formatJsonStr(str );
 		JSONArray jArray  =  JSONUtil.parseArray(jsonstr);
-		System.out.println("recive heros....");
-		System.out.println(jArray.toJSONString(1));
 		List<Hero> lt2 =  JSONUtil.toList(jArray, Hero.class);
 		for (Hero t2 : lt2) {
 			System.out.println("rec: " + t2);
@@ -175,10 +182,8 @@ public class tableController {
 	@RequestMapping("/devil")
 	@ResponseBody
 	public JSONArray devil(HttpServletRequest req) {
-		System.out.println("devs:  " + ldevil.size());
 		String key = req.getParameter("search_key");
-		System.out.println("key:  " + key);
-		
+		req.getParameterMap().forEach((k,v)->System.out.println("on sonReq: " + k + " : " +v[0]));
 		List<Devil> res1 = new ArrayList<Devil>() ;
 		for(Devil tmp : ldevil) {
 			if (tmp.ref2hero == (Integer.parseInt(key))) {
@@ -186,7 +191,6 @@ public class tableController {
 			}
 		}
 		JSONArray res = JSONUtil.parseArray(res1);
-		System.out.println(ldevil.size() + " : " + res.toJSONString(1));
 		return	res;
 	}
 	@RequestMapping("/devil_add")
@@ -194,11 +198,8 @@ public class tableController {
 	public String devil_add(HttpServletRequest req) {
 		String str = req.getParameter("para_newD");
 		String jsonstr = JSONUtil.formatJsonStr(str );
-		System.out.println(jsonstr);
 		Devil ad  =  JSONUtil.parseObj(jsonstr).toBean(Devil.class);
-		System.out.println(ad);
 		ldevil.add(0, ad);
-		System.out.println(ldevil.get(0));
 		return "okok";
 	}
 	
