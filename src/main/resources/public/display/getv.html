@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Display=none and visibility=hidden's Values</title>
+		<script src="../../js/jq/jquery-1.11.3.js"></script>
+		<link href="../../css/bootstrap/bootstrap.min.css" rel="stylesheet">
+		<link href="../../css/bootstrap/bootstrap-select.min.css" rel="stylesheet">
+		<link href="../../css/bootstrap/bootstrap-editable.css" rel="stylesheet">
+		<script src="../../js/bootstrap/bootstrap.min.js"></script>
+		<script src="../../js/bootstrap/bootstrap-select.min.js"></script>
+		<script src="../../js/bootstrap/bootstrap-editable.min.js"></script>
+		<script src="../../js/vue/vue.min.js"></script>
+</head>
+<body>
+<div id="demo">
+	<table  class="table" v-if="displayTable">
+		<tr class="subTask" v-for="i in hero">
+			<td><input type="text" v-bind:value="i.name" name="heroName"></input></td>	
+			<td><input type="text" v-bind:value="i.belong" name="heroBelong"></input></td>	
+			<td><input type="number" v-bind:value="i.age" name="heroAge"></input></td>	
+		</tr>
+	</table>
+	<table  class="table"  style="visibility:hidden">
+		<tr class="subTask1" v-for="i in hero">
+			<td><input type="text" v-bind:value="i.name" name="heroName"></input></td>	
+			<td><input type="text" v-bind:value="i.belong" name="heroBelong"></input></td>	
+			<td><input type="number" v-bind:value="i.age" name="heroAge"></input></td>	
+		</tr>
+	</table>
+	<button class="btn btn-success" v-on:click="toggle">toggleTable</button>
+	<button class="btn btn-success" v-on:click="genDisplayNone">genDisplayNone</button>
+	<button class="btn btn-success" v-on:click="genVisibilityHidden">genVisibilityHidden</button>
+</div>
+
+<script>
+	$(function(){
+		var demo = new Vue({
+			el:"#demo",
+			data:{
+				displayTable : true,
+				hero:[
+					{"name":"zhiyuan","belong":"iecas","age":30},
+					{"name":"zhangping","belong":"zhongai","age":30},
+					{"name":"zzy","belong":"nokia","age":30},
+					{"name":"qingguang","belong":"iecas","age":35}
+				]		
+			},
+			methods:{
+				toggle:function(){
+					this.displayTable = ! this.displayTable;
+				},
+				genDisplayNone : function(){
+					console.log("into get values for heros-display=none")
+					var sts = $(this.$el).find(".subTask");
+					for(var i =0 ; i< sts.length ; i++){
+						var heroName = $(sts[i]).find("input[name=heroName]").val();
+						var heroBelong = $(sts[i]).find("input[name=heroBelong]").val();
+						var heroAge = $(sts[i]).find("input[name=heroAge]").val();
+						var tmp = {
+								"heroName" :heroName,
+								"heroBelong":heroBelong,
+								"heroAge":heroAge
+						}
+						console.log(JSON.stringify(tmp))
+					}
+				},
+				genVisibilityHidden :function(){
+					console.log("into get values for heros-visibility=hidden")
+					var sts = $(this.$el).find(".subTask1");
+					for(var i =0 ; i< sts.length ; i++){
+						var heroName = $(sts[i]).find("input[name=heroName]").val();
+						var heroBelong = $(sts[i]).find("input[name=heroBelong]").val();
+						var heroAge = $(sts[i]).find("input[name=heroAge]").val();
+						var tmp = {
+								"heroName" :heroName,
+								"heroBelong":heroBelong,
+								"heroAge":heroAge
+						}
+						console.log(JSON.stringify(tmp))
+					}
+					
+					
+				}
+			}
+		})
+	})
+</script>
+</body>
+</html>
