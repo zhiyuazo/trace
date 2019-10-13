@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>VueTest</title>
 		<script src="../../js/jq/jquery-1.11.3.js"></script>
 		<link href="../../css/bootstrap/bootstrap.min.css" rel="stylesheet">
 		<link href="../../css/bootstrap/bootstrap-select.min.css" rel="stylesheet">
@@ -11,12 +11,13 @@
 		<script src="../../js/bootstrap/bootstrap-select.min.js"></script>
 		<script src="../../js/bootstrap/bootstrap-editable.min.js"></script>
 		<script src="../../js/vue/vue.min.js"></script>
-		<script src="./test.js"></script>
+		<script src="./basic.js"></script>
 </head>
 <body>
 	<div id="test">
-		<div>{{target}}</div>
-		<input type="text" v-bind:value="task"></input>
+		<div>{{message}}</div>
+		<input type="text" v-bind:value="company"></input>
+		<button class="btn btn-success" v-on:click="change">change</button>
 	</div>
 </body>
 </html>

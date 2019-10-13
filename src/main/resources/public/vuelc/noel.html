@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>VueTest</title>
+		<script src="../../js/jq/jquery-1.11.3.js"></script>
+		<link href="../../css/bootstrap/bootstrap.min.css" rel="stylesheet">
+		<link href="../../css/bootstrap/bootstrap-select.min.css" rel="stylesheet">
+		<link href="../../css/bootstrap/bootstrap-editable.css" rel="stylesheet">
+		<script src="../../js/bootstrap/bootstrap.min.js"></script>
+		<script src="../../js/bootstrap/bootstrap-select.min.js"></script>
+		<script src="../../js/bootstrap/bootstrap-editable.min.js"></script>
+		<script src="../../js/vue/vue.min.js"></script>
+		<script src="./noel.js"></script>
+</head>
+<body>
+	<div id="test">
+		<div>{{message}}</div>
+		<input type="text" v-bind:value="company"></input>
+		<button class="btn btn-success" v-on:click="change">change</button>
+	</div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<head>
+	<script src="../../js/jq/jquery-1.11.3.js"></script>
+	<link href="../../css/bootstrap/bootstrap.min.css" rel="stylesheet">
+	<link href="../../css/bootstrap/bootstrap-select.min.css" rel="stylesheet">
+	<link href="../../css/bootstrap/bootstrap-editable.css" rel="stylesheet">
+	<script src="../../js/bootstrap/bootstrap.min.js"></script>
+	<script src="../../js/bootstrap/bootstrap-select.min.js"></script>
+	<script src="../../js/bootstrap/bootstrap-editable.min.js"></script>
+	<script src="../../js/vue/vue.min.js"></script>
+	<script src="./tmpl.js"></script>
+</head>
+<body>
+<!-- 
+	render > template > el指定的.HTML
+	如果没有el:"#app" 则Vue实例只到created阶段,
+		直到对实例进行mounted操作，进行template判断后进行render↓ 
+	一般而言,不会重写render函数
+	如果vue实例中没有指定template, 则render默认将el指定的HTML进行渲染
+	如果vue实例中有 template ,则el指定的HTML被忽略掉， render渲染template 
+	
+	!NOTE:
+		所谓(挂载虚拟DOM)：指的是于mounted阶段
+			将template中定义的值|el指定的元素的HTML 去替换(Render) el元素中的内容
+			el元素中的真实内容被忽略，替换为template或者el中的内容(原内容的拷贝).....这个新内容称为【虚拟DOM】
+ -->
+ <div id="abstract" style="width:100%;height:300px;">
+ 	<textarea style="width:50%;height:100%;float:left">
+ 		render > template > el指定的.HTML
+	1. 如果没有el:"#app" 则Vue实例只到created阶段,
+			直到对实例进行mounted操作
+			[ var vm = new Vue({..}); 
+			  vm.$mounted("#app")
+			]，扔可以进行mounted操作
+	2. 然后对template判断
+			如果vue实例中没有指定template, 则render默认将el指定的HTML进行渲染
+			如果vue实例中有 template ,则el指定的HTML被忽略掉， render渲染template 
+	3. 对上一步进行render 
+			一般而言,不会重写render函数
+	!NOTE!:
+		所谓(挂载虚拟DOM)：指的是于mounted阶段
+			将template中定义的值or el指定的元素的HTML 去替换 el元素中真实的内容(render过程)
+			el元素中的真实内容被忽略，替换为template或者el中的内容(原内容的拷贝).....这个新内容称为【虚拟DOM】
+	</textarea>
+	<div style="width:50%;height:100%;float:left;overflow:auto">
+	  	<img src="./vue_life_cycle.png">Vue的生命周期</img>
+	</div> 
+ </div>
+  <div id="app">
+    <!--html中修改的-->
+    <h1>{{message + '这是在outer HTML中的'}}</h1>
+    <input type="text" v-bind:value="message"/>
+  </div>
+</body>
+</html>
