@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>VueChat betweenFatherAndSon</title>
+		<script src="../../js/jq/jquery-1.11.3.js"></script>
+		<link href="../../css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+		<link href="../../css/bootstrap/bootstrap-select.min.css" rel="stylesheet" />
+		<script src="../../js/bootstrap/bootstrap.min.js"></script>
+		<script src="../../js/bootstrap/bootstrap-select.min.js"></script>
+		<script src="../../js/vue/vue.min.js"></script>
+		<script src="./fschat.js"></script>
+</head>
+<body>
+	<div id="blog-demo" v-bind:style="{ fontSize:postFontSize + 'em' }">
+		<blog-post v-on:enlarge-text="large(event)" 
+				   v-on:ensmall-text="small"
+				   v-for="p in posts" 
+				   v-bind:post="p" 
+				   v-bind:key="p.id">Author:zzy</blog-post>
+	</div>
+</body>
+</html>
