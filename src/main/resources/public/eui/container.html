@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script src="../../js/jq/jquery-1.11.3.min.js"></script>
+  <script src="../../js/vue/vue.min.js"></script>
+  <link rel="stylesheet" href="./subs/eui212.min.css">
+  <script src="./subs/eui212.min.js"></script>
+  <script src="./subs/eui212-ZH-CN.min.js"></script>
+  <script src="./container.js"></script>
+  <style>
+	  body > .el-container {
+	    margin-bottom: 40px;
+	    border : 2px solid green;
+	  }
+	  .el-header, .el-footer {
+	    background-color: #B3C0D1;
+	    color: #333;
+	    text-align: center;
+	    line-height: 60px;
+	  }
+	  
+	  .el-aside {
+	    background-color: #D3DCE6;
+	    color: #333;
+	    text-align: center;
+	    line-height: 200px;
+	  }
+	  
+	  .el-main {
+	    background-color: #E9EEF3;
+	    color: #333;
+	    text-align: center;
+	    line-height: 160px;
+	  }
+	  
+	  
+	  .el-container:nth-child(5) .el-aside,
+	  .el-container:nth-child(6) .el-aside {
+	    line-height: 260px;
+	  }
+	  
+	  .el-container:nth-child(7) .el-aside {
+	    line-height: 320px;
+	  }
+	  .el-col{
+	  	border-right:1px solid red;
+	  	padding : 2px;
+	  }
+	  hr{
+	  	color:red;
+	  }
+	</style>
+</head>
+<body>
+<div id="test">
+	<el-row>
+		<el-col :span="8">
+			<el-container>
+			  <el-header>Header</el-header>
+			  <el-main>Main</el-main>
+			</el-container>
+		</el-col>
+		<el-col :span="8">
+			<el-container>
+			  <el-header>Header</el-header>
+			  <el-main>Main</el-main>
+			  <el-footer>Footer</el-footer>
+			</el-container>
+		</el-col>
+		<el-col :span="8">
+			<el-container>
+			  <el-aside width="200px">Aside</el-aside>
+			  <el-main>Main</el-main>
+			</el-container>
+		</el-col>
+	</el-row>
+	<hr/>
+	<el-row>
+		<el-col :span="8">
+			<el-container>
+			  <el-header>Header</el-header>
+			  <el-container>
+			    <el-aside width="50px">Aside</el-aside>
+			    <el-main>Main</el-main>
+			  </el-container>
+			</el-container>
+		</el-col>
+		<el-col :span="8">
+			<el-container>
+			  <el-header>Header</el-header>
+			  <el-container>
+			    <el-aside width="200px">Aside</el-aside>
+			    <el-container>
+			      <el-main>Main</el-main>
+			      <el-footer>Footer</el-footer>
+			    </el-container>
+			  </el-container>
+			</el-container>
+		</el-col>
+		<el-col :span="8">
+			<el-container>
+			  <el-aside width="50px">Aside</el-aside>
+			  <el-container>
+			    <el-header>Header</el-header>
+			    <el-main>Main</el-main>
+			  </el-container>
+			</el-container>
+		</el-col>
+	</el-row>
+	<hr/>
+	<el-row>
+		<el-col :span="8">
+			<el-container>
+			  <el-aside width="200px">Aside</el-aside>
+			  <el-container>
+			    <el-header>Header</el-header>
+			    <el-main>Main</el-main>
+			    <el-footer>Footer</el-footer>
+			  </el-container>
+			</el-container>
+		</el-col>
+		<el-col :span="8"><!-- 这里会上下排列 -->
+			<el-container>
+			    <el-aside width="50px">Aside</el-aside>
+			    <el-header>Header(包含headerFooter 会上下排列)</el-header>
+			    <el-main>Main</el-main>
+			    <el-footer>Footer</el-footer>
+			</el-container>
+		</el-col>
+		<el-col :span="8">
+			<el-container>
+			    <el-header>Header(包含headerFooter 会上下排列即使位置更改)</el-header>
+			    <el-aside width="50px">Aside</el-aside>
+			    <el-main>Main</el-main>
+			    <el-footer>Footer</el-footer>
+			</el-container>
+		</el-col>
+	</el-row>
+</div>
+</body>
+</html>
+
