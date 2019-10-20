@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script src="../../js/jq/jquery-1.11.3.min.js"></script>
+  <script src="../../js/vue/vue.min.js"></script>
+  <link rel="stylesheet" href="./subs/eui212.min.css">
+  <script src="./subs/eui212.min.js"></script>
+  <script src="./subs/eui212-ZH-CN.min.js"></script>
+    <script>
+    	$(function(){
+			var demo = new Vue({
+			  el: '#demo',
+			  data:{
+				  radio1:'',
+				  radio2:'',
+				  radio3:'',
+				  radiogrp:'',
+				  input1value:'',
+				  input2value:'',
+				  inputpwdvalue:''
+			  }
+			})
+    	})
+  </script>
+</head>
+<body>
+	<div id="demo">
+		<el-radio v-model="radio1" border label="本田"></el-radio>
+		<el-radio v-model="radio1" label=false></el-radio>
+		<el-radio v-model="radio1" label=99></el-radio>
+		<br/>
+		<el-radio-group v-model="radiogrp">
+			<el-radio  label="北京"></el-radio>
+			<el-radio  label="南京"></el-radio>
+			<el-radio  label="湛江"></el-radio>
+		</el-radio-group>
+		
+		<el-input  v-model="input1value" clearable placeholder="等待ing"></el-input>
+		<el-input  prefix-icon="el-icon-search" suffix-icon="el-icon-date" v-model="input2value" clearable placeholder="等待ing"></el-input>
+		<el-input  v-model="inputpwdvalue" placeholder="等待ing" show-password></el-input>
+		<el-input  v-model="inputpwdvalue" placeholder="等待ing" show-password></el-input>
+		
+	</div>
+</body>
+</html>
+
