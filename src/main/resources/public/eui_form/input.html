@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script src="../../js/jq/jquery-1.11.3.min.js"></script>
+  <script src="../../js/vue/vue.min.js"></script>
+  <link rel="stylesheet" href="../../js/eui/eui212.min.css">
+  <script src="../../js/eui/eui212.min.js"></script>
+  <script src="../../js/eui/eui212-ZH-CN.min.js"></script>
+  <script src="../../constData/globalData.js"></script>
+  <script src="./input.js"></script>
+  <style>
+		.self-autocomplete {
+			  li {
+			    line-height: normal;
+			    padding: 7px;
+			  }
+			  .name {
+			      text-overflow: ellipsis;
+			      overflow: hidden;
+			  }
+		      .addr {
+		      	  font-size: 6px;
+		          color: #b4b4b4;
+		      }
+		      .highlighted .addr {
+		          color: #ddd;
+		      }
+		  }
+	</style>
+</head>
+<body>
+	<div id="demo">
+		<el-input  v-model="value1" clearable placeholder="可以清除的.."></el-input>
+		<el-input  size="mini" prefix-icon="el-icon-search" suffix-icon="el-icon-date" v-model="value2" placeholder="带图标的..."></el-input>
+		<el-input  v-model="pwdvalue" placeholder="显示隐藏password.." show-password></el-input>
+		
+		<el-row class="demo-autocomplete">
+			  <el-col :span="12">
+				    <div class="sub-title">激活即列出输入建议</div>
+				    <el-autocomplete
+				      class="inline-input"
+				      v-model="advice1"
+				      v-bind:fetch-suggestions="querySearch"
+				      v-on:select="handleSelect"
+				      placeholder="请输入内容"
+				    ></el-autocomplete>
+			  </el-col>
+			  <el-col :span="12">
+				    <div class="sub-title">输入后匹配输入建议</div>
+				    <el-autocomplete
+				      class="inline-input"
+				      v-model="advice2"
+				      v-bind:fetch-suggestions="querySearch"
+				      v-bind:trigger-on-focus="false"
+				      v-on:select="handleSelect"
+				      placeholder="请输入内容"
+				    ></el-autocomplete>
+			  </el-col>
+		</el-row>
+		
+		<el-row class="demo-autocomplete">
+			  <el-col :span="12">
+				    <div class="sub-title">自定义补全模版</div>
+					<el-autocomplete
+						  popper-class="self-autocomplete"
+						  placeholder="请输入内容"
+						  v-model="advice3"
+						  v-bind:fetch-suggestions="querySearch"
+						  v-on:select="handleSelect">
+						  <i
+						    class="el-icon-edit el-input__icon"
+						    slot="suffix"
+						    v-on:click="handleIconClick">
+						  </i>
+						  <template slot-scope="{ item }">
+						    <div class="name">{{ item.value }}</div>
+						    <span class="addr">{{ item.address }}</span>
+						  </template>
+					</el-autocomplete>
+			  </el-col>
+			  <el-col :span="12">
+				    <div class="sub-title">远程模版</div>
+			  </el-col>
+		</el-row>
+		
+		
+	</div>
+</body>
+</html>
+		
+		
