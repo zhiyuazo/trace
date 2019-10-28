@@ -1,0 +1,23 @@
+https://www.jianshu.com/p/c5e191d58ae5
+----[Request/Reply] 模式...
+1.服务端和客户端无论谁先启动，效果是相同的，这点不同于 Socket。
+2.在服务端收到信息以前，程序是阻塞的，会一直等待客户端连接上来。
+3.服务端收到信息后，会发送一个 “World” 给客户端。值得注意的是一定是客户端连接上来以后，发消息给服务端，服务端接受消息然后响应客户端，这样一问一答。
+4.ZMQ 的通信单元是消息，它只知道消息的长度，并不关心消息格式。因此，你可以使用任何你觉得好用的数据格式，如 Xml、Protocol Buffers、Thrift、json 等等。
+
+----[publish/SubScribe] 模式...
+1.与 “Hello World” 例子不同的是，Socket 的类型变成 ZMQ.PUB 和 ZMQ.SUB 。
+2.客户端需要设置一个过滤条件，接收自己感兴趣的消息。
+		以下为设置多个过滤条件： （接收消息开头要以 10001,10002开头）记住是开头...
+        String filter1 = "10001";
+        String filter2 = "10002";
+        suscriber.subscribe(filter1.getBytes());  //过滤条件1
+        suscriber.subscribe(filter2.getBytes());  //过滤条件2
+3.发布者一直不断地发布新消息，如果中途有订阅者退出，其他均不受影响。当订阅者再连接上来的时候，收到的就是后来发送的消息了。这样比较晚加入的或者是中途离开的订阅者必然会丢失掉一部分信息。这是该模式的一个问题，即所谓的 "Slow joiner" 。
+----[Paralle/Pipeline] or [push/pull] 模式...
+1.ventilator 使用 ZMQ.PUSH 来分发任务；
+2.worker用 ZMQ.PULL 来接收任务，用 ZMQ.PUSH 来发送结果；
+3.sink 用 ZMQ.PULL 来接收 worker 发来的结果。
+4.ventilator 既是服务端，也是客户端（此时服务端是 sink）；
+5.worker 在两个过程中都是客户端；
+6.sink 也一直都是服务端。

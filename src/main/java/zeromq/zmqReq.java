@@ -2,7 +2,7 @@ package zeromq;
 
 import org.zeromq.ZMQ;
 
-public class zmqClient {
+public class zmqReq {
 	public static void main(String args[]) {
 		for (int j = 0;  j < 5; j++) {
 			new Thread(new Runnable(){
