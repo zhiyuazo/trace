@@ -11,7 +11,6 @@ public class zmqWorker {
 			        ZMQ.Context context = ZMQ.context(1);
 			        ZMQ.Socket pullFromVentilator = context.socket(ZMQ.PULL);
 			        pullFromVentilator.connect("tcp://localhost:5557");
-			        
 			        ZMQ.Socket push2Sink = context.socket(ZMQ.PUSH);
 			        push2Sink.connect("tcp://localhost:5558");
 			        
