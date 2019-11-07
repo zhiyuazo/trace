@@ -1,4 +1,4 @@
-package	 tool.bean; 
+package	 controllerSet.bean; 
 
 import cn.hutool.core.convert.Convert;
 import cn.hutool.core.util.RandomUtil;

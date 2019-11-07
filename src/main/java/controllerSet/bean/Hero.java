@@ -1,4 +1,4 @@
-package tool.bean; 
+package controllerSet.bean; 
 
 import java.util.Arrays;
 
