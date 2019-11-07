@@ -2,15 +2,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Canvas-Demos</title>
+<script src="../../js/jq/jquery-1.11.3.js"></script>
+<script src="./canvas-demo.js"></script>
 </head>
 <body>
-	<canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;"> </canvas>
-	<script>
-		var c=document.getElementById("myCanvas"); 
-		var ctx=c.getContext("2d"); 
-		ctx.fillStyle="#FF0000"; 
-		ctx.fillRect(0,0,150,75);
-	</script>
+	<canvas id="canvas-rect" width="200" height="200" style="border:1px solid #000000;"> </canvas>
+	<canvas id="canvas-line" width="200" height="200" style="border:1px solid #000000;"> </canvas>
+	<canvas id="canvas-circle" width="200" height="200" style="border:1px solid #000000;"> </canvas>
+	<canvas id="canvas-text" width="200" height="200" style="border:1px solid #000000;"> </canvas>
+	<canvas id="canvas-lineChange" width="200" height="200" style="border:1px solid #000000;"> </canvas>
+	<canvas id="canvas-RadialChange" width="200" height="200" style="border:1px solid #000000;"> </canvas>
+	<canvas id="canvas-image" width="200" height="200" style="border:1px solid #000000;"> </canvas>
+	<img id="pic" src="./oilPic.jpg" alt="The pciture" width="220" height="277">
 </body>
 </html>
