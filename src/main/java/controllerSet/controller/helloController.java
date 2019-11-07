@@ -1,4 +1,4 @@
-package controllerSet.controller;
+package tool.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +12,7 @@ import cn.hutool.json.JSONUtil;
 
 @Controller
 public class helloController {
+
 	@RequestMapping("/hello")
 	@ResponseBody
 	public String hello() {
