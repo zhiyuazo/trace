@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>旋转</title>
+		<script src="../../js/jq/jquery-1.11.3.js"></script>
+		<link href="../../css/bootstrap/bootstrap.min.css" rel="stylesheet">
+		<script src="../../js/bootstrap/bootstrap.min.js"></script>
+		<script src="../../js/vue/vue.min.js"></script>
+<style> 
+	#sendStatus	{
+		animation:sends 2s linear infinite;
+		-webkit-animation:sends 2s linear infinite; /* Safari and Chrome */
+	}
+	@keyframes sends
+	{
+		from {transform: rotate(0deg);}
+		to {transform: rotate(360deg);}
+	}
+	
+	@-webkit-keyframes sends /* Safari and Chrome */
+	{
+		from {transform: rotate(0deg);}
+		to {transform: rotate(360deg);}
+	}
+</style>
+</head>
+<body>
+	<span id="sendStatus" class="glyphicon glyphicon-refresh"></span>
+</body>
+</html>
