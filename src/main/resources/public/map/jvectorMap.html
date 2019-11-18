@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JVectorMap-world</title>
+	<script src="../../js/jq/jquery-1.11.3.js"></script>
+    <script src="../../js/map/jquery.vmap.js"></script>  
+    <script src="../../js/map/jquery.vmap.world.js"></script>  
+    <script src="../../js/map/jquery.vmap.usa.js"></script> 
+    <script>  
+    	$(function(){
+		    $('#vmap-world').vectorMap({  
+		        map: 'world_en',  
+		        backgroundColor: null,  
+		        color: '#ffffff',  
+		        hoverOpacity: 0.7,  
+		        selectedColor: '#666666',  
+		        enableZoom: true,  
+		        showTooltip: true,  
+		        values: "?",  
+		        scaleColors: ['#C8EEFF', '#006491'],  
+		        normalizeFunction: 'polynomial'  
+		    });  
+		    $('#vmap-usa').vectorMap({  
+			    map: 'usa_en',  
+			    backgroundColor: null,  
+			    color: '#ffffff',  
+			    hoverColor: '#999999',  
+			    selectedColor: '#666666',  
+			    enableZoom: true,  
+			    showTooltip: true,  
+			    selectedRegion: 'MO'  
+			});  
+    	
+    	})
+    </script>  
+</head>
+<body>
+    <div id="vmap-world" style="width: 600px; height: 400px;"></div>  
+    <div id="vmap-usa" style="width: 600px; height: 400px;"></div>  
+</body>
+</html>
+       
