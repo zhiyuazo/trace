@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue-baidumap</title>
+	<script src="../../js/jq/jquery-1.11.3.js"></script>
+	<script src="../../js/vue/vue.min.js"></script>
+	<script src="../../js/map/vue.baidu.map.min.js"></script>
+    <script src="./vue_bmap.js"></script>
+    <style>
+        #map{
+            width: 500px;
+            height: 500px;
+        }
+        #map1{
+            width: 500px;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div id="map">
+        <baidu></baidu>
+    </div>
+    <template id="baidu">
+		<baidu-map class="map">
+            <bm-navigation anchor="BMAP_ANCHOR_TOP_RIGHT"></bm-navigation>
+            <bm-view style="position: absolute; top: 60px; bottom: 20px; left: 20px; right: 20px"></bm-view>
+        </baidu-map>
+    </template>
+	<!-- 上面的不成功，不晓得为什么 -->
+    
+    <div id="map_vue_only">
+		<baidu-map class="map_vue_only" :center="center" :zoom="zoom">
+            <bm-navigation anchor="BMAP_ANCHOR_TOP_RIGHT"></bm-navigation>
+			<bm-view style="position: absolute; top: 60px; bottom: 20px; left: 20px; right: 20px"></bm-view>
+		</baidu-map>
+    </div>
+</body>
+</html>
