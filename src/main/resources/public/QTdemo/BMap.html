@@ -3,13 +3,10 @@
     <head>
         <title>Web+JavaS</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <script type="text/javascript" src="qwebchannel.js"></script>
+        <script type="text/javascript" src="qrc:////abc/qwebchannel.js"></script>
         <script type="text/javascript">
-
-
             window.onload = function () {
                 output("ready!");
-
                 new QWebChannel(qt.webChannelTransport, function (channel) {
                     var interactobj = channel.objects.interactobj;
                     document.getElementById("send").onclick = function () {

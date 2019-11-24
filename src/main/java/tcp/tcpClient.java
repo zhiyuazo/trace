@@ -13,7 +13,7 @@ import java.net.UnknownHostException;
 public class tcpClient {
 	
 	public static void main(String[] args) throws UnknownHostException, IOException {
-		final Socket s = new Socket("127.0.0.1",8887);
+		final Socket s = new Socket("127.0.0.1",8886);
 		
 		OutputStream os = s.getOutputStream();
 		DataOutputStream dos = new DataOutputStream(os);
