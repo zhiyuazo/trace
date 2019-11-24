@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>张萍的简历</title>
+<script src="../../js/jq/jquery-1.11.3.js"></script>
+<script src="../../js/vue/vue.min.js"></script>
+<link rel="stylesheet" href="../../js/eui/eui212.min.css">
+<script src="../../js/eui/eui212.min.js"></script>
+<script src="../../js/eui/eui212-ZH-CN.min.js"></script>
+<link href="./zp001.css" rel="stylesheet" />
+<script src="./zp001.js"></script>
+</head>
+<body>
+	<div id="head">
+		  <el-carousel :interval="1000" type="card"  height="300px">
+		    <el-carousel-item v-for="(lp,index) in lifePhoto" :key="index">
+    	    	<el-image
+			      style="width: 100%; height: 300px"
+			      :src="lp.url"
+			      :preview-src-list="lp.url"
+			      fit="cover">
+			 	</el-image>
+		    </el-carousel-item>
+		  </el-carousel>
+	</div>
+</body>
+</html>
