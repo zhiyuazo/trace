@@ -33,9 +33,10 @@
 	<!-- 上面的不成功，不晓得为什么 -->
     
     <div id="map_vue_only">
-		<baidu-map class="map_vue_only" :center="center" :zoom="zoom">
+		<baidu-map class="map_vue_only" :center="center" :zoom="zoom" @ready="init" @click="getClickInfo" :scroll-wheel-zoom='true'>
             <bm-navigation anchor="BMAP_ANCHOR_TOP_RIGHT"></bm-navigation>
-			<bm-view style="position: absolute; top: 60px; bottom: 20px; left: 20px; right: 20px"></bm-view>
+            <!-- 没有下面bm-view 地图不能显示 -->
+			<bm-view style="position: absolute; top: 60px; bottom: 20px; left: 20px; right: 20px;width:500px;height:500px;"></bm-view>
 		</baidu-map>
     </div>
 </body>
