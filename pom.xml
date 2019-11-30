@@ -3,6 +3,13 @@
   <groupId>com.footprint</groupId>
   <artifactId>trace</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <properties>
+    <java.version>1.8</java.version>
+	<!-- 指定Jar包输出文件夹 -->
+	<jar.directory>TsServiceDcm</jar.directory>
+	<!-- 指定输出Jar包名 -->
+	<jar.name>trace</jar.name>
+  </properties>
   <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -53,9 +60,6 @@
     </dependency>
   </dependencies>
   
-    <properties>
-        <java.version>1.8</java.version>
-    </properties>
  
     <build>
         <plugins>
