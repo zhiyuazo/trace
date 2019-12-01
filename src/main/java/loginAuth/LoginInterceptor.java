@@ -15,24 +15,19 @@ public class LoginInterceptor implements HandlerInterceptor{
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
         HttpSession session = httpServletRequest.getSession();
         String contextPath=session.getServletContext().getContextPath();
-        String[] requireAuthPages = new String[]{"test/index.html","hello"};
+        String[] requireAuthPages = new String[]{"home.html"};
   
         String uri = httpServletRequest.getRequestURI();
-        System.out.println(uri);
  
-        Enumeration<String> res = session.getAttributeNames();
-        if(res.hasMoreElements()) {
-        	String key = res.nextElement();
-        	System.out.println(key+ ":" + session.getValue(key));
-        }
-        uri = StringUtils.remove(uri, contextPath+"/");
-        String page = uri;
+        String[] sub_uri = StringUtils.split(uri,"/");
+        String page = sub_uri[sub_uri.length -1];
+        System.out.println(String.format("req-uri=%s final-page=%s", uri,page));
          
         if(begingWith(page, requireAuthPages)){
-            Object authflag =  session.getAttribute("user");
-            System.out.println("authflag=: " +authflag);
-            if(authflag==null) {
-                httpServletResponse.sendRedirect("login/login.html");
+            User u =  (User)session.getAttribute("user");
+            System.out.println("@checkAuth=: " +u);
+            if(u==null) {
+                httpServletResponse.sendRedirect("/login/login.html");
                 return false;
             }
         }

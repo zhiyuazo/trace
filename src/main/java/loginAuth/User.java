@@ -7,7 +7,6 @@
 package loginAuth;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 @JsonIgnoreProperties({ "handler","hibernateLazyInitializer" })
 public class User {
 	private int id;
@@ -17,6 +16,9 @@ public class User {
 	
 	private String anonymousName;
 
+	public String toString() {
+		return String.format("id=%s,name=%s,password=%s,sald=%s", id,name,password,salt);
+	}
 	public int getId() {
 		return id;
 	}
