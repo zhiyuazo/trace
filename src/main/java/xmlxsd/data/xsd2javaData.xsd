@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="example">
+    <xs:annotation>
+      <xs:documentation>英雄描述</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <!--heroID-->
+        <xs:element name="ID" type="xs:int"/>
+        <!--heroName-->
+        <xs:element name="Name">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="80"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+		<!--heroType-->
+        <xs:element name="Type">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="80"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <!--how many child dose this hero has-->
+        <xs:element name="childNumber">
+          <xs:simpleType>
+            <xs:restriction base="xs:int">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="100"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <!--children-->
+        <xs:element name="childs" maxOccurs="100">
+          <xs:complexType>
+            <xs:sequence>
+              <!--childID-->
+              <xs:element name="childID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:int">
+                    <xs:minInclusive value="1"/>
+                    <xs:maxInclusive value="90000000"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <!--childName-->
+              <xs:element name="childName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <!--childSex-->
+              <xs:element name="childSex" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <!--childHobby-->
+              <xs:element name="childHobby">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <!--childHeight-->
+              <xs:element name="childHeight">
+                <xs:simpleType>
+                  <xs:restriction base="xs:int">
+                    <xs:minInclusive value="1"/>
+                    <xs:maxInclusive value="90000000"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <!--childWidth-->
+              <xs:element name="childWidth">
+                <xs:simpleType>
+                  <xs:restriction base="xs:int">
+                    <xs:minInclusive value="1"/>
+                    <xs:maxInclusive value="90000000"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <!--childColor-->
+              <xs:element name="childColor" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <!--childBornTime-->
+              <xs:element name="childBornTime">
+                <xs:simpleType>
+                  <xs:restriction base="xs:long">
+                    <xs:minInclusive value="1"/>
+                    <xs:maxInclusive value="9999999999999"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <!--deadTime-->
+              <xs:element name="childDeadTime">
+                <xs:simpleType>
+                  <xs:restriction base="xs:long">
+                    <xs:minInclusive value="1"/>
+                    <xs:maxInclusive value="9999999999999"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
