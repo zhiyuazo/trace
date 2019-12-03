@@ -1,4 +1,4 @@
-package NativeMethod;
+package nativeMethod;
 
 public class jnative {
 
