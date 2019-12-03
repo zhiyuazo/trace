@@ -17,13 +17,13 @@ public class convert {
 		方法二：解决xjc不能编码的问题,,但是上面java1.8版本上，带上编码参数是没有问题的，下面这个命令找不到类...
 			java -Dfile.encoding=UTF-8 -cp %JAVA_HOME%\lib\tools.jar com.sun.tools.internal.xjc.Driver  -p xmlxsd   src/main/java/xmlxsd/example.xsd
 		方法三：Eclipse (未测试)
-			new --> other--> JAX --> JAXB Classes from Schema
+			new --> other--> JAXB --> JAXB Classes from Schema
 		*/
 	}
 	public static void java2xsd() {
 		/*
 			方法一：Eclipse (未测试)
-				new --> other--> JAX --> Schema from JAXB Classes
+				new --> other--> JAXB --> Schema from JAXB Classes
 		*/
 	}
 	
