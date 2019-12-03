@@ -6,7 +6,7 @@ public class joriginal {
 		joriginal  ins  = new joriginal();
 		long start = System.currentTimeMillis();
 		for (int i = 0 ; i < 1000 * 10000;i++) {
-			ins.computeSum(i, i+1);
+			int res = ins.computeSum(i, i+1);
 		}
 		long end = System.currentTimeMillis();
 		System.out.println("cost: " + (end -start));
