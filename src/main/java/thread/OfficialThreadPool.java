@@ -1,10 +1,10 @@
-package threadPool;
+package thread;
 
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-public class officialThreadPool {
+public class OfficialThreadPool {
 	public static void main(String[] args) {
 		ThreadPoolExecutor tp = new ThreadPoolExecutor(10, 
 														15, 

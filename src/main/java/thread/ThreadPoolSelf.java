@@ -1,14 +1,14 @@
-package threadPool;
+package thread;
 
 import java.util.LinkedList;
 
-public class selfThreadPool {
+public class ThreadPoolSelf {
 	
 	int poolsize ;
 	
 	LinkedList<Runnable> tasks  = new LinkedList<Runnable>();
 
-	public  selfThreadPool() {
+	public  ThreadPoolSelf() {
 		poolsize = 10;
 		synchronized (tasks) {
 			for (int i = 0; i < poolsize; i++) {
@@ -52,7 +52,7 @@ public class selfThreadPool {
 	}
 	
 	public static void main(String[] args) {
-		selfThreadPool pool  = new selfThreadPool();
+		ThreadPoolSelf pool  = new ThreadPoolSelf();
 		int sleep = 1000;
 		while(true) {
 			pool.add(new Runnable() {
