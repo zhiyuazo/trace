@@ -15,6 +15,9 @@ public class TimerTry_timer {
 	//线程安全
 	//设置delay时间
 	//取消任务方便
+	//误差 可能60ms / 1 min
+	//Timer只创建了一个线程。当你的任务执行的时间超过设置的延时时间将会产生一些问题。
+	//Timer创建的线程没有处理异常，因此一旦抛出非受检异常，该线程会立即终止
 	public static void main(String[] args) {
 		
 		long start =  System.currentTimeMillis();
