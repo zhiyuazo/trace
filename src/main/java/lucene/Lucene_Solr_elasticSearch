@@ -1,0 +1,10 @@
+1.Lucene 
+2.Solr 封装了Lucene 提供一个WebAPP 供用户查询数据
+	--> 数据库数据导入到Solr 
+	--> SolrJ.jar 提供API,JAVA代码访问数据
+	--> 分词器也需要导入JAR包并配置
+	--> 更新，删除，增加都是针对这个WebAPP ,DB 和 这个WEBAPP如何保持同步，猜测应该有配置 
+	
+3.ElasticSearch  同样封装了Lucene 提供一个更为便利的WebAPP 供用户查询数据默认9200端口 
+	-->Kibana  ElasticSearch 有了相当多的数据之后，进行分析这些数据用的工具。  默认5601端口
+			         此外Kibana 里面有一个叫做 Dev Tools的，可以很方便地以Restful风格向 ElasticSearch 服务器提交请求
