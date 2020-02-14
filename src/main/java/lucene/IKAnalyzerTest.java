@@ -5,7 +5,7 @@ import java.io.IOException;
 import org.apache.lucene.analysis.TokenStream;
 import org.wltea.analyzer.lucene.IKAnalyzer;
 
-public class AnalyzerTest {
+public class IKAnalyzerTest {
 
 	public static void main(String[] args) throws IOException {
 		
