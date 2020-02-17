@@ -1,0 +1,6 @@
+C3p0  DBCP  Druid 这里的三个数据库连接池  
+相当于脱离Mybatis  
+Spring-boot框架
+本质上都一样 
+还是使用配置方式不一样罢了
+https://blog.csdn.net/wawa3338/article/details/81380662
