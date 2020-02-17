@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<c3p0-config>
+   <!--默认配置-->
+	  <default-config>
+	    <property name="driverClass">com.mysql.cj.jdbc.Driver</property>
+	    <property name="jdbcUrl">jdbc:mysql://www.coolidea.store:3306/test</property>
+	    <property name="user">zzy</property>
+	    <property name="password">zzy@ali</property>
+	    <property name="initialPoolSize">5</property>
+	    <property name="maxPoolSize">20</property>
+	  </default-config>
+    
+	  <!--配置连接池 test-->
+	  <named-config name="lqg">
+	    <property name="driverClass">com.mysql.jdbc.Driver</property>
+	    <property name="jdbcUrl">jdbc:mysql://www.coolidea.store:3306/test</property>
+	    <property name="user">lqg</property>
+	    <property name="password">lqg@ali</property>
+	  </named-config>
+</c3p0-config>
