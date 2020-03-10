@@ -115,6 +115,7 @@ public class testDate {
 		//JAVA1.8 基于ISOb标准,java.time 包下的所有类都是不可变，且线程安全
 		//DateTimeFormatter 【解析格式化日期时间】
 		//Instant       【瞬时(时间戳类)】约等于util.Date类，可以相互转换 
+		//Clock          【用于获取时间戳】 替代  System.CurrentTimeMillis() 和 TimeZone.getDefault();
 		//YearMonth     【每年固定月份,应用于信用开到期等】
 		//MonthDay      【每月固定天数，应用于重复时间，如生日，万圣节等】
 		//LocalDate     【日期】 2020-03-01  	【不包含时间】
@@ -125,13 +126,72 @@ public class testDate {
 		//OffsetDateTime 【日期时间】带有时差，不含时区
 		//ZoneOffSet    【表示时区】
 		//ZoneId		 【用来获取时区】
-		//Clock          【用于获取时间戳】 替代  System.CurrentTimeMillis() 和 TimeZone.getDefault();
 		//Duration 		【长短】带秒？
 //			1.Duration.between(LocalDate-1,LocalDate-2) 
 //			2.Duration.between(LocalTime-1,LocalTime-2) 
 //			3.Duration.between(LocalDateTime-1,LocalDateTime-2)  
 		//Period        【周期】带天？
 //			1.Duration.between(LocalDate-1,LocalDate-2) 
+		logger.info("JAVA8.. DateTime");
+        System.out.println("-----------切记，日期时间，时区 是两个概念，两者组合，才能唯一确定时间------------------------------------");
+        LocalDateTime  ldt = LocalDateTime.of(1970,01 ,01, 8, 00, 01);
+        System.out.println("-----------距离1970-01-01 00:00:00的秒数------------------------------------");
+        System.out.println(ldt.toEpochSecond(ZoneOffset.UTC));
+        System.out.println(new Date(ldt.toEpochSecond(ZoneOffset.UTC)*1000));//自动显示默认时区的时间，我这里默认是北京时间东八区
+        System.out.println(ldt.toEpochSecond(ZoneOffset.ofHours(8)));
+        System.out.println(new Date(ldt.toEpochSecond(ZoneOffset.ofHours(8))*1000)); //自动显示默认时区的时间，我这里默认是北京时间东八区
+        System.out.println("-----------转化为指定的时间点Instant表示-----------------------------");
+        System.out.println(ldt.toInstant(ZoneOffset.UTC)); //日期时间， 和 时区 是两个概念， 这个将两个概念组合成一个准确的时间(相对于197010000而言)
+        System.out.println(ldt.toInstant(ZoneOffset.ofHours(8)));
+        System.out.println("-----------转化为OffsetDateTime表示(带有Offset的时间日期，可以唯一确定时间 PS:每个Zone可能包含多个Offset)-----------------------------");
+        System.out.println(ldt.atOffset(ZoneOffset.UTC)); //日期时间， 和 时区 是两个概念， 这个将两个概念组合成一个准确的时间(相对于197010000而言)
+        System.out.println(ldt.atOffset(ZoneOffset.ofHours(-8))); //日期时间， 和 时区 是两个概念， 这个将两个概念组合成一个准确的时间(相对于197010000而言)
+        System.out.println(ldt.atOffset(ZoneOffset.ofHours(8))); //日期时间， 和 时区 是两个概念， 这个将两个概念组合成一个准确的时间(相对于197010000而言)
+        System.out.println("-----------转化为ZoneDateTime表示(带有Offset的时间日期，可以唯一确定时间)-----------------------------");
+        System.out.println(ldt.atZone(ZoneId.of("GMT"))); //日期时间， 和 时区 是两个概念， 这个将两个概念组合成一个准确的时间(相对于197010000而言)
+        System.out.println(ldt.atZone(ZoneId.of("America/Los_Angeles"))); //日期时间， 和 时区 是两个概念， 这个将两个概念组合成一个准确的时间(相对于197010000而言)
+        System.out.println(ldt.atZone(ZoneId.of("Asia/Shanghai"))); //日期时间， 和 时区 是两个概念， 这个将两个概念组合成一个准确的时间(相对于197010000而言)
+        System.out.println("-----------String<-->LocalDateTime----------------------------------------");
+//        System.out.printf("%s-%s\n","BASIC_ISO_DATE", DateTimeFormatter.BASIC_ISO_DATE );	   			//19890501[+8:00]
+//        System.out.printf("%s-%s\n","ISO_DATE", DateTimeFormatter.ISO_DATE );			   				//1989-05-01[+8:00]	
+//        System.out.printf("%s-%s\n","ISO_TIME", DateTimeFormatter.ISO_TIME );			   				//18:30:30.000[+8:00]
+//        System.out.printf("%s-%s\n","ISO_DATE_TIME", DateTimeFormatter.ISO_DATE_TIME );	   				//1989-05-01T18:30:30.000+8:00[Asia/Shanghai]
+//        System.out.printf("%s-%s\n","ISO_LOCAL_DATE", DateTimeFormatter.ISO_LOCAL_DATE );	   			//1989-05-01
+//        System.out.printf("%s-%s\n","ISO_LOCAL_TIME", DateTimeFormatter.ISO_LOCAL_TIME );	   			//18:30:30.000
+//        System.out.printf("%s-%s\n","ISO_LOCAL_DATE_TIME", DateTimeFormatter.ISO_LOCAL_DATE_TIME ); 	//1989-05-01T18:30:30.000
+//        System.out.printf("%s-%s\n","ISO_OFFSET_DATE", DateTimeFormatter.ISO_OFFSET_DATE );	   			//1989-05-01[+8:00]
+//        System.out.printf("%s-%s\n","ISO_OFFSET_TIME", DateTimeFormatter.ISO_OFFSET_TIME );     		//18:30:30.000[+8:00]
+//        System.out.printf("%s-%s\n","ISO_OFFSET_DATE_TIME", DateTimeFormatter.ISO_OFFSET_DATE_TIME );	//1989-05-01T18:30:30.000+8:00
+//        System.out.printf("%s-%s\n","ISO_ZONED_DATE_TIME", DateTimeFormatter.ISO_ZONED_DATE_TIME);  	//1989-05-01T18:30:30.000+8:00[Asia/Shanghai]
+//        System.out.printf("%s-%s\n","ISO_INSTANT", DateTimeFormatter.ISO_INSTANT ); //类似于Date        	//xxxxxxx...
+//        System.out.printf("%s-%s\n","ISO_ORDINAL_DATE", DateTimeFormatter.ISO_ORDINAL_DATE);          	//1989-365+8:00
+//        System.out.printf("%s-%s\n","ISO_WEEK_DATE", DateTimeFormatter.ISO_WEEK_DATE);        			//xxxxxxx...
+//        System.out.printf("%s-%s\n","RFC_1123_DATE_TIME", DateTimeFormatter.RFC_1123_DATE_TIME);   		//Sun,1 5 1989 18:30:30 +8:00
+        String localDatetimeStr = "1989-05-01T18:30:30.666";
+        System.out.println(LocalDateTime.parse(localDatetimeStr,  DateTimeFormatter.ISO_LOCAL_DATE_TIME));
+        String offsetDatetimeStr = "1989-05-01T18:30:30.666+08:00";
+        System.out.println(OffsetDateTime.parse(offsetDatetimeStr,  DateTimeFormatter.ISO_OFFSET_DATE_TIME));
+        String zoneDatetimeStr = "1989-05-01T18:30:30.666+08:00[Asia/Shanghai]";
+        System.out.println(ZonedDateTime.parse(zoneDatetimeStr,  DateTimeFormatter.ISO_ZONED_DATE_TIME));
+        
+        String localDatetimeStr1 = "1989@05@01 18-30-30.666";
+        System.out.println(LocalDateTime.parse(localDatetimeStr1,  DateTimeFormatter.ofPattern("yyyy@DD@MM HH-mm-ss.SSS")));
+        System.out.println(ldt.format(DateTimeFormatter.ofPattern("yyyy@DD@MM HH-mm-ss.SSS")));
+        
+        System.out.println("-----------转换时区----------------------------------------");
+        System.out.println(ldt.atZone(ZoneId.of("GMT"))); //GMT/UTC时区
+        System.out.println(ldt.atZone(ZoneId.of("Asia/Shanghai"))); //本地时区/JAVA默认是本地时区
+        System.out.println(ZonedDateTime.of(ldt, ZoneId.of("GMT"))); //GMT/UTC时区
+        System.out.println(ZonedDateTime.of(ldt, ZoneId.of("Asia/Shanghai"))); //JAVA默认是本地时区
+        System.out.println(ZonedDateTime.now());   							   //JAVA默认是本地时区
+        System.out.println(OffsetDateTime.of(ldt,ZoneOffset.UTC)); //GMT/UTCOffset
+        System.out.println(OffsetDateTime.of(ldt,ZoneOffset.ofHours(8))); //本地Offset 
+        System.out.println(OffsetDateTime.now());//JAVA默认是本地Offset
+        System.out.println("-----------打印当前日期时间/时区----------------------------------------");
+        System.out.println(ldt.toString()); //只打印时间日期，没有时区，时移
+        System.out.println(ldt.now()); //同样适用OffsetDateTime&ZonedDateTime:打印本地默认时区的【时间日期】...static方法，结果必然是本地默认,不受赋值的影响
+        System.out.println(ZoneId.systemDefault());//打印系统默认时间
+        System.out.println(ZoneOffset.systemDefault());//打印系统默认时间
 		
 		logger.info("JAVA8.. 日期");
 		LocalDate  lodate  =  LocalDate.now();
