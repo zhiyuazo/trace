@@ -1,4 +1,4 @@
-package testDate;
+package date;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -6,7 +6,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 
-public class testDateZone {
+public class testDateZoneOld {
 
 	//moment.js  不指定utc的情况下，默认得到的时间为系统所在时区的时间。
 	//picker.endDate.format("YYYY-MM-DD HH:mm:ss"); 得到的是一个时间字符串， 如果moment.js 用utc，则为UTC字符串，如果不是，则为系统时间字符串
