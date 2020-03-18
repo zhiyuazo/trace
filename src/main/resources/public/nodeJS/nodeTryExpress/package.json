@@ -1,0 +1,18 @@
+{
+  "name": "zzy-try-nodeproject-express",
+  "version": "1.0.3",
+  "description": "npm of zzy-try-nodeproject-express",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "zzy-contribute"
+  ],
+  "author": "zzy",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "multer": "^1.4.2"
+  }
+}

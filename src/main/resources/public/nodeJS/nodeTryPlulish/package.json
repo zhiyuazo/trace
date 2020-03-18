@@ -1,0 +1,14 @@
+{
+    "name": "zzy_publish",
+    "version": "1.0.3",
+    "description": "npm of how2java",
+    "main": "zzy_publish.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+      "zzy_publish"
+    ],
+    "author": "how2j",
+    "license": "ISC"
+  }
