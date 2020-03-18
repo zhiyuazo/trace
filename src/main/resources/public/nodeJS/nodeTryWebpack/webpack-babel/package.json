@@ -1,0 +1,25 @@
+{
+  "name": "webpack-zzy",
+  "version": "1.0.0",
+  "description": "front-end with webpack,run with [npm run]",
+  "main": "webpack.config.js",
+  "dependencies": {
+    "webpack": "^1.13.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.18.0",
+    "babel-loader": "^6.2.7",
+    "babel-preset-latest": "^6.24.1",
+    "css-loader": "^0.25.0",
+    "style-loader": "^0.13.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server --open"
+  },
+  "keywords": [
+    "zzy-contribute"
+  ],
+  "author": "zhiyuan",
+  "license": "ISC"
+}

@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <script src="bundle1.js"></script>
+        <script src="bundle2.js"></script>
+    </head>
+    <body>
+        <H1>webpack-npm-run-with-many-files</H1>
+
+        <p>Hello Webpack-dev-server</p>
+        <p>webpack.config.js中定义端口</p>
+        <p>webpack.config.js中定义支持热更新，即js变动自动刷新页面html CSS 需要另外配置livereload</p>
+        <p>直接webpack-dev-server --open 不需要webpack先生成bundle.js...open以后也不会再文件夹下生成bundle.js,反正html能找到</p>
+        <p>require('webpack')是全局变量，需要npm link webpack 到当前文件下，文件夹下会产生node_modules/webpack</p>
+    </body>
+</html>

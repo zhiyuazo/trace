@@ -1,0 +1,17 @@
+{
+  "name": "webpack-npm-run-many-file",
+  "version": "1.0.0",
+  "description": "front-end with webpack,run with [npm run]",
+  "main": "a.js",
+  "dependencies": {
+    "webpack": "^1.13.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev" : "webpack-dev-server --open"
+  },
+  "keywords": ["zzy-contribute"],
+  "author": "zhiyuan",
+  "license": "ISC"
+}

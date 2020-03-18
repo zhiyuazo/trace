@@ -1,0 +1,8 @@
+据How2J 建议 以下版本的安装对Win兼容性好
+cnpm install -g webpack@1.13.2  
+cnpm install -g webpack-dev-server@1.15.0
+npm install --save-dev babel-loader@6.2.7  
+npm install --save-dev babel-core@6.18.0 
+npm install --save-dev babel-preset-latest@6.24.1
+npm install --save-dev style-loader@0.13.1 
+npm install --save-dev css-loader@0.25.0 

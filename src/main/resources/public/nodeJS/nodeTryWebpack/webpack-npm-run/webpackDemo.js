@@ -1,0 +1,1 @@
+console.log("this is demo for webpack-with npm-run method...")
