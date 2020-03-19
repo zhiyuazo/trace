@@ -1,0 +1,5 @@
+npm install -g @vue/cli@3.0.1
+npm install -g @vue/cli-service-global@3.0.1
+
+vue --version        查看版本
+vue serve  test.vue  启动一个vue项目
