@@ -1,0 +1,16 @@
+
+<!-- 一个组件的css和 HTML部分， 并定义JS入口 -->
+<div class="task" v-on:click="selectedMark">
+    <span class="name">
+        {{detailz.name}}
+    </span>
+    <span class="label-task pull-right" style="font-weight:bold">
+        {{detailz.labelt}}
+    </span>
+    <br/>
+    <span style="text-align:center ;display:block">{{detailz.owner}}+{{detailz.group}}</span>
+    <br/>
+    <span class="nanyi pull-right" >
+        [{{detailz.nanyi}}]
+    </span>
+</div>

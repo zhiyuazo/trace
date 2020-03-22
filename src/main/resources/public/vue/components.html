@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!--
+	遗留如何导入模块
+	@1 : c1.js中定义的全局Vue.component 再 components.js中不起作用
+	@2 : import export 也是不行的...
+-->
+<title>Vue components</title>
+		<script src="../../js/jq/jquery-1.11.3.js"></script>
+		<link href="../../css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+		<link href="../../css/bootstrap/bootstrap-select.min.css" rel="stylesheet" />
+		<script src="../../js/bootstrap/bootstrap.min.js"></script>
+		<script src="../../js/bootstrap/bootstrap-select.min.js"></script>
+		<script src="../../js/vue/vue.min.js"></script>
+		<!-- 
+		<script src="./sub_component/c1.js"></script>
+		 -->
+		<script src="./components.js" type="module"></script>
+	  <style>
+		.task {
+			display: inline-block;
+			position: relative;
+			left:50px;
+			width: 200px;
+			height: 80x;
+			margin: 10px;
+			padding: 15px;
+			background-color: #d9edf7;
+			border-radius: 18px;
+			color: #337ab7;
+			text-decoration: none;
+			font-size: 10px;
+			font-family: Helvetica;
+			border-spacing: 0;
+			border-collapse: collapse;
+		}
+		.task:hover{
+			background-color: #FFDEAD;
+		}
+		.SELECTED_Mark{
+			background-color: #4EEE94;
+		}
+	</style>
+</head>
+<body>
+<!--
+	如果自定义组件有层次结构的书写， 那么如何在这里引用呢其他HTML呢...
+	即c1.html + c1.js 定义的组件 <tentity>??? 
+-->
+	<div id="display_area">
+	    <tentity v-bind:detailz="para1"></tentity>
+	</div>
+</body>
+</html>
