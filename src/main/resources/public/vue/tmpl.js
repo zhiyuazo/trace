@@ -2,6 +2,32 @@
  * 
  */
 $(function(){
+	Vue.component("zzy",{
+		data : function(){
+			return {
+				ps : [
+					{name:"zhiyuan",age:30},
+					{name:"zhiyuan",age:30},
+					{name:"zhiyuan",age:30},
+					{name:"zhiyuan",age:30}
+				]
+			}
+		},
+		template:`
+			<div>
+				<button class="btn btn-success">登陆</button>
+				<table>
+					<tr v-for="p in ps"><td>{{p.name}}</td><td>{{p.age}}</td></tr>
+				</table>
+				<button class="btn btn-danger">撤销</button>
+			</div>
+		`
+	});
+	
+	var testis = new Vue({
+		el:"#testIS"
+	})
+	
 	var tmpl=document.getElementById("tmpl").innerHTML;
 	Vue.component("tentity",{
 		props:['detailz'],
