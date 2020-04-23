@@ -13,9 +13,16 @@ $(function(){
 				]
 			}
 		},
+		methods : {
+			print : function(){
+				console.log(this.$attrs)
+			}
+		},
+//		inheritAttrs: false,
 		template:`
 			<div>
-				<button class="btn btn-success">登陆</button>
+				<button class="btn btn-success" v-on:click="print">登陆</button>
+				<input name="this.$attrs.name" type="this.$attrs.type" /> 
 				<table>
 					<tr v-for="p in ps"><td>{{p.name}}</td><td>{{p.age}}</td></tr>
 				</table>
