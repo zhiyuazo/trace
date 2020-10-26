@@ -2,10 +2,11 @@ package testPinyin;
 
 import org.junit.Test;
 
+import com.zzy.trace.pinyin.PinyinUtil;
+
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombination;
-import pinyin.PinyinUtil;
 
 public class testPinyin {
 	public void t2() throws BadHanyuPinyinOutputFormatCombination {

@@ -5,8 +5,8 @@
 		var srhPanel = new Vue({
 			el:"#search_panel",
 			data:{
-				globalConstNations : [],
-				globalConstNames : [],
+				globalConstNations : ["美国","中国","日本"],
+				globalConstNames : ["A","B","C"],
 				key_nation : "根据国家筛选",
 				key_name : "根据名称筛选"
 			},

@@ -2,6 +2,8 @@ package testDB;
 
 import java.sql.SQLException;
 
+import com.zzy.trace.db.DBUtilsPlus;
+
 import testModel.father;
 
 public class testGenSql {
@@ -11,7 +13,7 @@ public class testGenSql {
 //		DBUtilsPlus.getTableSql(DMMBZCMessage.class , "syq_bw_dmzc");
 //		DBUtilsPlus.getTableSql(KZMBZCMessage.class , "syq_bw_airzc");
 //		DBUtilsPlus.getTableSql(TXZCMessage.class , "syq_bw_txzc");
-		String sql1 = db.DBUtilsPlus.getTableSql(father.class , "syq_father");
+		String sql1 = DBUtilsPlus.getTableSql(father.class , "syq_father");
 		
 		System.out.println(sql1);
 	}

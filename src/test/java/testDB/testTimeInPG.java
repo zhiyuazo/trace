@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.OffsetDateTime;
 
-import db.DBUtilsPlus;
+import com.zzy.trace.db.DBUtilsPlus;
 
 public class testTimeInPG {
 	public static void main(String[] args) throws SQLException {

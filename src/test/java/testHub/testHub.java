@@ -1,7 +1,7 @@
 package testHub;
 
-import blockQueue.PutThread;
-import blockQueue.TakeThread;
+import com.zzy.trace.blockQueue.PutThread;
+import com.zzy.trace.blockQueue.TakeThread;
 
 public class testHub {
 	

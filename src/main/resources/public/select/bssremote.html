@@ -58,14 +58,34 @@
 	</div>
 	
 	<div id="search_panel" style="width:100%">
-		<select v-on:change="srhWithNN" v-model="key_nation"  id="selectByNation" class="selectpicker" data-live-search="true" data-style="btn-danger" data-size="5" data-width="49%" >  
-			<option data-tokens="kong|null|wu|default">根据国家筛选</option>
-			<option v-for="i in globalConstNations" v-bind:data-tokens="i.token">{{i.text}}</option>
-		</select>
-		<select v-on:change="srhWithNN" v-model="key_name" id="selectByName" class="selectpicker" data-live-search="true" data-style="btn-danger" data-size="5" data-width="49%" >  
-			<option data-tokens="kong|null|wu|default">根据名称筛选</option>
-			<option v-for="i in globalConstNames" v-bind:data-tokens="i.token">{{i.text}}</option>
-		</select>
+	    <div class="row">
+	        <div class="col-xs-4 ">
+				<select v-on:change="srhWithNN" v-model="key_nation"  id="selectByNation" class="selectpicker" data-live-search="true" data-style="btn-danger" data-size="5" data-width="49%" >  
+					<option data-tokens="kong|null|wu|default">根据国家筛选</option>
+					<option v-for="i in globalConstNations" v-bind:data-tokens="i.token">{{i.text}}</option>
+				</select>
+				<select v-on:change="srhWithNN" v-model="key_name" id="selectByName" class="selectpicker" data-live-search="true" data-style="btn-danger" data-size="5" data-width="49%" >  
+					<option data-tokens="kong|null|wu|default">根据名称筛选</option>
+					<option v-for="i in globalConstNames" v-bind:data-tokens="i.token">{{i.text}}</option>
+				</select>
+	        </div>
+	        <div class="col-xs-8 ">
+				<table class="table table-bordered">
+					<tbody>
+						<tr>
+							<td>dsada</td>
+							<td>dsada</td>
+							<td>
+								<select v-on:change="srhWithNN" v-model="key_name" id="selectByName" class="selectpicker" data-live-search="true" data-style="btn-danger" data-size="5" data-width="49%" >  
+									<option data-tokens="kong|null|wu|default">根据名称筛选</option>
+									<option v-for="i in globalConstNames" v-bind:data-tokens="i.token">{{i.text}}</option>
+								</select>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+	        </div>
+	     </div>
 	</div>
 	
 	<div id="npcPool" style="height:150px ;overflow-y:auto;" dir="ltr">

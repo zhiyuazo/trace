@@ -1,8 +1,8 @@
 package testStack;
 
-import ProducerConsumer.ConsumerThread2;
-import ProducerConsumer.ProducerThread2;
-import mystack.MyStack2;
+import com.zzy.trace.ProducerConsumer.ConsumerThread2;
+import com.zzy.trace.ProducerConsumer.ProducerThread2;
+import com.zzy.trace.mystack.MyStack2;
 
 public class testStack2 {
 	public static void main(String[] args) {
