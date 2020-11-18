@@ -1,0 +1,4 @@
+1.IEButton 用来尝试组件的基本传值v-bind,插槽slot 
+2. IEPost 用来尝试父子传值
+3. IEInput 用来尝试v-model组件的构建
+4. Aside用来演示动态组件的应用<component v-bind:is="xxxx" > 属性

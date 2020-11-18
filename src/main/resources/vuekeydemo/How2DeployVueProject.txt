@@ -1,0 +1,17 @@
+-----------------------------------------------
+zzy的方法:
+1. vue.config.js  :  publicPath:"/vuekeydemo/"
+2. npm run build  
+3. copy dist目录内容到springboot工程src\main\resources\static\vuekeydemo 目录下
+4. 访问http://ip:port/vuekeydemo/index.html 即可, port是application.properties 中配置的server.port端口 
+-------------------------------------------------
+春雷的方法:
+1. vue.config.js  :  publicPath:"/static/vuekeydemo/"
+2. npm run build  
+3. copy dist目录内容到springboot工程src\main\resources\static\vuekeydemo\ 目录下
+4. 将dist/index.html   剪切到src\main\resources\templates\ 目录下
+5. controller中设置"return index;"的controller的方法
+6. 访问5中定以的controller
+-------------------------------------------------
+以上两种，未见大区别，一个需要写controller,一个不需要
+看兴趣...选择那个
