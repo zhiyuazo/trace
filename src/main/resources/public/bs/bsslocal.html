@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>BSselect local data USAGE</title>
+		<script src="../../js/jq/jquery-1.11.3.js"></script>
+		<link href="../../css/bootstrap/bootstrap.min.css" rel="stylesheet">
+		<link href="../../css/bootstrap/bootstrap-select.min.css" rel="stylesheet">
+		<link href="../../css/bootstrap/bootstrap-editable.css" rel="stylesheet">
+		<script src="../../js/bootstrap/bootstrap.min.js"></script>
+		<script src="../../js/bootstrap/bootstrap-select.min.js"></script>
+		<script src="../../js/bootstrap/bootstrap-editable.min.js"></script>
+		<script src="../../js/vue/vue.min.js"></script>
+		<script>
+		 	$(function(){
+				$("#optway").change(function(){
+					console.log($(this).val());
+				})
+				$("#jqway").selectpicker({
+					style:"btn-success",
+					liveSearch:true , 
+					title:"Please select" 
+				})
+		 	})
+		</script>
+</head>
+<body>
+	<select id="jqway">
+			<option data-icon="glyphicon-hand-down" data-tokens="bj|beijing">北京</option>
+			<option data-content="<span class='badge badge-success'>西安</span>" data-tokens="xa|xian">西安</option>
+			<option data-subtext="liaodong" data-tokens="sy|shenyang" >沈阳</option>
+			<option style="background-color:red" data-tokens="bd|baoding" >保定</option>
+			<option title="麻花的省份" data-tokens="tj|tianjin" >天津</option>
+	</select> 
+	
+	<select id="optway" 
+			class="selectpicker show-tick show-menu-arrow dropup" 
+			data-width="auto" 
+			data-selected-text-format="values" 
+			data-size="100" 
+			data-live-search="true" 
+			title="Please select" 
+			data-style="btn-success" 
+			multiple 
+			data-actions-box="true" 
+			data-max-options="5" 
+			data-header="我是头" 
+			data-dropup-auto="true">
+			
+		<optgroup label="north">
+			<option data-icon="glyphicon-hand-down" data-tokens="bj|beijing">北京</option>
+			<option data-content="<span class='badge badge-success'>西安</span>" data-tokens="xa|xian">西安</option>
+			<option data-subtext="liaodong" data-tokens="sy|shenyang" >沈阳</option>
+			<option style="background-color:red" data-tokens="bd|baoding" >保定</option>
+			<option title="麻花的省份" data-tokens="tj|tianjin" >天津</option>
+		
+		</optgroup>
+		<optgroup label="south">
+			<option data-tokens="sh|shanghai">上海</option>
+			<option data-tokens="nj|nanjing">南京</option>
+			<option data-tokens="bh|beihai">北海</option>
+			<option data-tokens="gl|guilin">桂林</option>
+			<option data-tokens="ls|lasa">拉萨</option>
+			<option data-tokens="dl|dali">大理</option>
+		</optgroup>
+		<optgroup label="west">
+			<option disabled data-tokens="xj|xinjiang">新疆</option>
+			<option data-tokens="lz|lanzhou">兰州</option>
+		</optgroup>
+		<optgroup label="east" disabled>
+			<option data-divider="true" data-tokens="mdj|mudanjiang">牡丹江</option>
+			<option data-tokens="tw|taiwan">台湾</option>
+		</optgroup>
+	</select>
+</body>
+</html>
